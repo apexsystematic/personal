@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kai's Sleep Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --warm-white: #FFFEF9;
+    --ink: #1C1A17;
+    --soft-ink: #3D3A34;
+    --muted: #8C8880;
+    --accent: #C17E5A;
+    --accent-light: #E8D5C4;
+    --accent-pale: #F5EDE5;
+    --green: #5A7A5C;
+    --green-pale: #E8F0E8;
+    --divider: #E8E2D9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+    padding: 48px 24px;
+  }
+
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--warm-white);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.06);
+  }
+
+  /* Header */
+  .header {
+    background: var(--ink);
+    padding: 48px 48px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(193,126,90,0.15);
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(193,126,90,0.08);
+  }
+
+  .header-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .header h1 {
+    font-family: 'Lora', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--warm-white);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--accent-light);
+  }
+
+  .header-sub {
+    color: rgba(255,255,255,0.45);
+    font-size: 13px;
+    margin-top: 12px;
+  }
+
+  /* Body */
+  .body {
+    padding: 48px;
+  }
+
+  /* Reassurance block */
+  .reassurance {
+    background: var(--green-pale);
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 24px 28px;
+    margin-bottom: 40px;
+  }
+
+  .reassurance-title {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    color: var(--green);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .reassurance p {
+    font-size: 14px;
+    color: var(--soft-ink);
+    line-height: 1.75;
+    margin-bottom: 10px;
+  }
+
+  .reassurance p:last-child { margin-bottom: 0; }
+
+  .cite {
+    font-size: 11px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* Section */
+  .section {
+    margin-bottom: 40px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .section h2 {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  /* Pre-conditions */
+  .checklist {
+    list-style: none;
+  }
+
+  .checklist li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--divider);
+    font-size: 14px;
+    color: var(--soft-ink);
+  }
+
+  .checklist li:last-child { border-bottom: none; }
+
+  .check-icon {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--accent);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Night phases */
+  .phases {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .phase {
+    background: var(--accent-pale);
+    border-radius: 8px;
+    padding: 20px 24px;
+    position: relative;
+  }
+
+  .phase-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+  }
+
+  .phase h3 {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+
+  .phase ul {
+    list-style: none;
+  }
+
+  .phase ul li {
+    font-size: 13.5px;
+    color: var(--soft-ink);
+    padding: 4px 0;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .phase ul li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* Rules */
+  .rules {
+    background: var(--ink);
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 40px;
+  }
+
+  .rules .section-label { color: var(--accent-light); }
+
+  .rules h2 {
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    color: var(--warm-white);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .rules ul {
+    list-style: none;
+  }
+
+  .rules ul li {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .rules ul li:last-child { border-bottom: none; }
+
+  .rules ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  .rules ul li strong {
+    color: var(--warm-white);
+    font-weight: 500;
+  }
+
+  /* For mom */
+  .for-mom {
+    background: linear-gradient(135deg, #F5EDE5 0%, #EDE5F5 100%);
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 40px;
+  }
+
+  .for-mom .section-label { color: #7A5A8C; }
+
+  .for-mom h2 {
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .for-mom p {
+    font-size: 14px;
+    color: var(--soft-ink);
+    margin-bottom: 10px;
+    line-height: 1.75;
+  }
+
+  .for-mom p:last-child { margin-bottom: 0; }
+
+  /* What to expect */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 24px;
+    bottom: 24px;
+    width: 1px;
+    background: var(--divider);
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 12px 0;
+  }
+
+  .timeline-dot {
+    width: 37px;
+    height: 37px;
+    background: var(--accent-pale);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    z-index: 1;
+  }
+
+  .timeline-content {
+    padding-top: 8px;
+  }
+
+  .timeline-content strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .timeline-content span {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* Footer */
+  .footer {
+    border-top: 1px solid var(--divider);
+    padding: 28px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .footer-note {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 420px;
+  }
+
+  .footer-sig {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 600px) {
+    .header { padding: 36px 28px 32px; }
+    .body { padding: 32px 28px; }
+    .footer { flex-direction: column; padding: 24px 28px; }
+    .header h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-label">Sleep Transition Guide · Dr. Mia</div>
+    <h1>Kai's Plan for <em>Better Nights</em></h1>
+    <div class="header-sub">For Jorge & Kai's mom · Kai is 18 months old</div>
+  </div>
+
+  <div class="body">
+
+    <!-- Reassurance -->
+    <div class="reassurance">
+      <div class="reassurance-title">First: Kai is not being harmed.</div>
+      <p>Kai currently sleeps 12–14 hours per day total. That meets every international guideline for his age. <span class="cite">(AAP/WHO joint guidelines)</span> His brain is getting what it needs.</p>
+      <p>The goal of this plan is not to fix something broken — it's to help him learn to connect his own sleep cycles without needing the breast. He is completely capable of this. He already does it four nights a week with Jorge.</p>
+      <p>Research consistently shows that sleep transitions done with a present, responsive caregiver cause no harm to attachment, emotional development, or neurological health. <span class="cite">(Gradisar et al., Pediatrics, 2016; Price et al., Pediatrics, 2012)</span></p>
+    </div>
+
+    <!-- Why this works -->
+    <div class="section">
+      <div class="section-label">The Science</div>
+      <h2>Why Kai wakes up at night</h2>
+      <p style="font-size:14px; color:var(--soft-ink); margin-bottom:16px; line-height:1.75">All humans — adults included — surface briefly between sleep cycles every 1–3 hours. We don't remember it because we've learned to drift back down on our own. Kai hasn't learned that yet, because nursing has always been the bridge. Every time he surfaces, his brain says: <em>"I need that to get back to sleep."</em> <span class="cite">(Mindell et al., Pediatrics, 2006)</span></p>
+      <p style="font-size:14px; color:var(--soft-ink); line-height:1.75">This is not a flaw. It's learned behaviour. And it can be unlearned — gently, with consistency, and with Jorge as his safe person through the transition.</p>
+    </div>
+
+    <!-- Pre-conditions -->
+    <div class="section">
+      <div class="section-label">Before Night One</div>
+      <h2>What needs to be in place first</h2>
+      <ul class="checklist">
+        <li>
+          <div class="check-icon"></div>
+          <span>Mom commits to sleeping in another room for a <strong>minimum of 2 weeks</strong> — no exceptions, not even one night</span>
+        </li>
+        <li>
+          <div class="check-icon"></div>
+          <span>Both parents agree on a <strong>start date</strong> and a clear 2-week minimum before assessing progress</span>
+        </li>
+        <li>
+          <div class="check-icon"></div>
+          <span>Mom has a plan to manage <strong>engorgement</strong> — pump as needed for comfort</span>
+        </li>
+        <li>
+          <div class="check-icon"></div>
+          <span>Pick a week without <strong>big stressors</strong> — travel, illness, major changes</span>
+        </li>
+        <li>
+          <div class="check-icon"></div>
+          <span>Both parents understand: <strong>hearing Kai cry is not harm.</strong> Protest is expected and temporary.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Night phases -->
+    <div class="section">
+      <div class="section-label">The Plan</div>
+      <h2>Night by night approach</h2>
+      <div class="phases">
+        <div class="phase">
+          <div class="phase-badge">Nights 1–3</div>
+          <h3>The hardest nights — expect them</h3>
+          <ul>
+            <li>Jorge does bedtime as normal</li>
+            <li>When Kai wakes, go to him immediately — presence, patting, calm voice</li>
+            <li>Keep interactions brief and boring — you're there, but sleep is the agenda</li>
+            <li>Expect protest. Sit with it. Your calm is his signal that everything is safe.</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <div class="phase-badge">Nights 4–7</div>
+          <h3>The shift begins</h3>
+          <ul>
+            <li>Wakings should start reducing in frequency</li>
+            <li>Same response every time — consistency is everything</li>
+            <li>If he stands and cries, sit next to him or briefly pick up then put down — whichever you can do consistently</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <div class="phase-badge">Week 2</div>
+          <h3>Consolidation</h3>
+          <ul>
+            <li>Most children show clear improvement by now</li>
+            <li>Begin gradually reducing your intervention — less patting, more just presence</li>
+            <li>He is learning to bridge his own sleep cycles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Non-negotiables -->
+    <div class="rules">
+      <div class="section-label">Non-negotiables</div>
+      <h2>Rules that make or break this</h2>
+      <ul>
+        <li><strong>Mom does not come in.</strong> Not once. Even briefly. Kai can smell her and it resets everything.</li>
+        <li><strong>No nursing at night.</strong> Under any circumstances, from either parent.</li>
+        <li><strong>Consistency beats technique.</strong> The method matters less than doing the same thing every single time. <span class="cite">(Mindell et al., Pediatrics, 2006)</span></li>
+        <li><strong>Two weeks minimum before judging progress.</strong> Night 3 is not representative. Night 10 is.</li>
+        <li><strong>If Kai is unwell, pause.</strong> Never sleep train through illness or major developmental stress.</li>
+      </ul>
+    </div>
+
+    <!-- For mom -->
+    <div class="for-mom">
+      <div class="section-label">A note for Kai's mom</div>
+      <h2>What you'll feel — and why it doesn't mean stop</h2>
+      <p>You will hear Kai cry and every instinct will say go to him. That instinct is good mothering, not a reason to abandon the plan.</p>
+      <p>Staying away is the loving act here. You are giving him the chance to learn one of the most important skills of early childhood: how to self-settle. You are not abandoning him. Jorge is there. Kai is safe.</p>
+      <p>Kai has a secure attachment to you — research shows securely attached children handle these transitions well and show no lasting distress. <span class="cite">(Ainsworth & Bell, Child Development, 1970; Gradisar et al., Pediatrics, 2016)</span></p>
+      <p>The separation is temporary. The skill he gains is permanent.</p>
+    </div>
+
+    <!-- What to expect timeline -->
+    <div class="section">
+      <div class="section-label">Realistic Expectations</div>
+      <h2>What most families see</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot">1–3</div>
+          <div class="timeline-content">
+            <strong>Nights 1–3: Hardest</strong>
+            <span>Most protest, most wakings. Normal. Expected. Hold the line.</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">4–7</div>
+          <div class="timeline-content">
+            <strong>Nights 4–7: The shift</strong>
+            <span>Wakings reduce. Protests shorter. First signs of progress.</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">2w</div>
+          <div class="timeline-content">
+            <strong>Week 2: Real change</strong>
+            <span>Most children sleeping significantly more consolidated by now.</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">4w</div>
+          <div class="timeline-content">
+            <strong>Week 3–4: New normal</strong>
+            <span>Skill is consolidating. Kai is learning he can do this.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end body -->
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-note">
+      This plan is based on established pediatric sleep research and clinical guidelines (AAP, WHO). It is not a substitute for your pediatrician. If you have concerns about Kai's health or development, always consult your doctor.
+    </div>
+    <div class="footer-sig">Dr. Mia</div>
+  </div>
+
+</div>
+</body>
+</html>
