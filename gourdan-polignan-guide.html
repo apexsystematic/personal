@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gourdan-Polignan — July Stay Guide</title>
+<style>
+  :root {
+    --sand: #F0EBE1;
+    --stone: #C8BFB0;
+    --bark: #6B5E4E;
+    --pine: #3A5944;
+    --pine-light: #EAF0EB;
+    --rust: #A0432A;
+    --rust-light: #F5EAE6;
+    --sky: #3B6B8A;
+    --sky-light: #E6EFF4;
+    --amber: #8A6130;
+    --amber-light: #F5EFE4;
+    --ink: #2A2420;
+    --muted: #7A6E66;
+    --border: #DDD5C8;
+    --white: #FDFCFA;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', serif;
+    background: var(--sand);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--pine);
+    color: var(--white);
+    padding: 2.5rem 1.25rem 2rem;
+    text-align: center;
+  }
+  header .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 0.6rem;
+  }
+  header h1 {
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
+    font-weight: normal;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  header .subtitle {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 1.5rem;
+  }
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+  }
+  .pill {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.04em;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  .nav-inner {
+    display: flex;
+    gap: 0;
+    min-width: max-content;
+    padding: 0 1rem;
+  }
+  nav a {
+    display: block;
+    padding: 0.75rem 0.85rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  nav a:hover { color: var(--pine); border-bottom-color: var(--pine); }
+
+  /* MAIN */
+  main { max-width: 680px; margin: 0 auto; padding: 0 1rem 4rem; }
+
+  /* SECTION */
+  section { padding-top: 2.5rem; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .icon-pine  { background: var(--pine-light); }
+  .icon-rust  { background: var(--rust-light); }
+  .icon-sky   { background: var(--sky-light); }
+  .icon-amber { background: var(--amber-light); }
+
+  .section-header h2 {
+    font-size: 1.15rem;
+    font-weight: normal;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .section-header .count {
+    margin-left: auto;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 10px;
+  }
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+  .card-top h3 {
+    font-size: 0.98rem;
+    font-weight: normal;
+    letter-spacing: -0.005em;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .badge {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .badge-star  { background: var(--pine-light); color: var(--pine); }
+  .badge-free  { background: #EAF4EC; color: #2A6B36; }
+  .badge-part  { background: var(--amber-light); color: var(--amber); }
+  .badge-mtn   { background: var(--sky-light); color: var(--sky); }
+  .badge-picnic{ background: #EEF7EF; color: #3A6E42; }
+
+  .card-meta {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .card-meta .dot { color: var(--stone); }
+  .card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .card-note {
+    margin-top: 0.5rem;
+    padding: 0.45rem 0.7rem;
+    background: var(--sand);
+    border-radius: 6px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    color: var(--bark);
+    line-height: 1.5;
+  }
+
+  /* COMBO CARD */
+  .combo-card {
+    background: var(--pine);
+    color: var(--white);
+    border-radius: 12px;
+    padding: 1.1rem 1.2rem;
+    margin-bottom: 10px;
+  }
+  .combo-card h3 {
+    font-size: 0.95rem;
+    font-weight: normal;
+    margin-bottom: 0.4rem;
+    opacity: 0.7;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .combo-stops {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 0.5rem;
+  }
+  .stop-tag {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 99px;
+    padding: 3px 10px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.9);
+  }
+  .stop-arrow {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+  }
+  .combo-card p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.55;
+  }
+
+  /* WEEK PLAN */
+  .week-block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .week-label {
+    background: var(--sand);
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 1rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--bark);
+  }
+  .week-days { padding: 0.6rem 1rem 0.8rem; }
+  .day-row {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--sand);
+    align-items: flex-start;
+  }
+  .day-row:last-child { border-bottom: none; }
+  .day-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    color: var(--stone);
+    width: 30px;
+    flex-shrink: 0;
+    padding-top: 2px;
+    font-weight: 600;
+  }
+  .day-content {
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.5;
+    flex: 1;
+  }
+  .day-note {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* TIPS */
+  .tip-box {
+    background: var(--rust-light);
+    border: 1px solid #E8C9C0;
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 10px;
+  }
+  .tip-box h3 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--rust);
+    margin-bottom: 0.4rem;
+  }
+  .tip-box p, .tip-box li {
+    font-size: 14px;
+    color: var(--bark);
+    line-height: 1.6;
+  }
+  .tip-box ul { padding-left: 1.1rem; }
+  .tip-box li { margin-bottom: 0.2rem; }
+
+  .info-box {
+    background: var(--sky-light);
+    border: 1px solid #C2D8E8;
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 10px;
+  }
+  .info-box h3 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--sky);
+    margin-bottom: 0.4rem;
+  }
+  .info-box p, .info-box li {
+    font-size: 14px;
+    color: #2A4A60;
+    line-height: 1.6;
+  }
+  .info-box ul { padding-left: 1.1rem; }
+  .info-box li { margin-bottom: 0.2rem; }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 2rem 0 0;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    color: var(--stone);
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Family Travel Guide · July 2025</div>
+  <h1>Gourdan-Polignan<br>& the Comminges</h1>
+  <div class="subtitle">Two weeks · Pyrenees foothills · Kai (20 months)</div>
+  <div class="pill-row">
+    <span class="pill">Max 30 min drive</span>
+    <span class="pill">Free or walk-around sites</span>
+    <span class="pill">Flat walks &amp; picnics</span>
+    <span class="pill">Mountain towns</span>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#heritage">Heritage</a>
+    <a href="#mountain-towns">Mountain Towns</a>
+    <a href="#picnic-spots">Picnic Spots</a>
+    <a href="#combos">Day Combos</a>
+    <a href="#planner">2-Week Plan</a>
+    <a href="#tips">Tips</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ───── HERITAGE ───── -->
+  <section id="heritage">
+    <div class="section-header">
+      <div class="section-icon icon-rust">🏛</div>
+      <h2>Heritage — Villages &amp; Architecture</h2>
+      <span class="count">8 sites</span>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Saint-Bertrand-de-Comminges</h3>
+        <span class="badge badge-star">Top pick</span>
+      </div>
+      <div class="card-meta">
+        <span>~20 min south</span><span class="dot">·</span><span>UNESCO village</span><span class="dot">·</span><span>Piémont Pyrenees</span>
+      </div>
+      <p>The area's unmissable site. Roman ruins of Lugdunum Convenarum (forum, baths, theatre — all flat and open-air), a medieval walled village with half-timbered lanes, and the Cathedral of Sainte-Marie built from the 12th–16th century. Often called the "Mont Saint-Michel of the Pyrenees." Plan at least two visits — it's too rich for one.</p>
+      <div class="card-note">Cathedral nave: free. Cloister, choir &amp; museum: small charge. Roman ruins below the village: free to walk.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Basilica of Saint-Just, Valcabrère</h3>
+        <span class="badge badge-free">Free exterior</span>
+      </div>
+      <div class="card-meta">
+        <span>~20 min south</span><span class="dot">·</span><span>UNESCO, 11th–12th c.</span><span class="dot">·</span><span>Romanesque</span>
+      </div>
+      <p>A Romanesque basilica standing alone in open meadows 1 km below Saint-Bertrand. Built partly from salvaged Roman stone. Extraordinary setting with Pyrenees backdrop. Flat surroundings make it an excellent picnic stop — combine with Saint-Bertrand in one outing.</p>
+      <div class="card-note">Free exterior. Small charge inside. Part of the Santiago de Compostela UNESCO route.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Château de Valmirande</h3>
+        <span class="badge badge-free">Free exterior</span>
+      </div>
+      <div class="card-meta">
+        <span>~5 min · Montréjeau</span><span class="dot">·</span><span>19th-c. château</span><span class="dot">·</span><span>41-ha park</span>
+      </div>
+      <p>Nicknamed the "little Chambord of the Pyrenees" — an extraordinary 19th-century château hidden behind majestic trees, still privately owned. The 41-hectare park with 180+ tree species is walkable and lovely. From 14 July, guided tours run daily at 16h (cash only).</p>
+      <div class="card-note">Park free to walk year-round. Guided tours from 14 July at 16h00 — arrive 10 min early. Cash payment only. Tel: +33 6 21 05 40 16</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Montréjeau bastide</h3>
+        <span class="badge badge-free">Free</span>
+      </div>
+      <div class="card-meta">
+        <span>~5 min</span><span class="dot">·</span><span>13th-c. royal bastide</span><span class="dot">·</span><span>Pyrenees panorama</span>
+      </div>
+      <p>A 13th-century royal bastide perched at the confluence of the Garonne and Neste rivers. Arcaded central square, Hôtel de Lassus, orangerie, and a panoramic terrace with views across the Pyrenees. Flat town centre — easy with a pushchair. Good for a short morning wander.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Aurignac</h3>
+        <span class="badge badge-free">Free</span>
+      </div>
+      <div class="card-meta">
+        <span>~25 min north</span><span class="dot">·</span><span>Medieval hilltop village</span><span class="dot">·</span><span>404 m altitude</span>
+      </div>
+      <p>A picturesque medieval village perched on a rocky spur at 404m, historically the capital of a Comminges châtellenie. Comtal castle and donjon, old Romanesque church, half-timbered houses and Renaissance mansions. Views over the rolling Comminges hills. Self-guided free tour available via smartphone app.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>L'Isle-en-Dodon</h3>
+        <span class="badge badge-free">Free</span>
+      </div>
+      <div class="card-meta">
+        <span>~30 min north</span><span class="dot">·</span><span>11th-c. fortified village</span><span class="dot">·</span><span>Gascon character</span>
+      </div>
+      <p>A quietly charming 11th-century fortified village with a Gascon-style arcaded square, colourful half-timbered facades, and a 16th-century church with stained glass by Arnaud de Moles. Unhurried, local, off the tourist trail. Save for a slow morning.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Saint-Gaudens town</h3>
+        <span class="badge badge-free">Free</span>
+      </div>
+      <div class="card-meta">
+        <span>~10 min</span><span class="dot">·</span><span>Collegiate church · Viewpoint</span>
+      </div>
+      <p>The local market town with a beautiful 11th-century Romanesque collegiate church on the Camino route and a panoramic viewpoint over the Pyrenees. Good for a Thursday market visit (weekly market day) or an easy afternoon at Lac de Sède — flat path, playground, picnic tables, misting machine.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Martres-Tolosane</h3>
+        <span class="badge badge-free">Free</span>
+      </div>
+      <div class="card-meta">
+        <span>~25 min east</span><span class="dot">·</span><span>Medieval circulade village</span><span class="dot">·</span><span>Garonne riverside</span>
+      </div>
+      <p>A medieval circulade village (fortified ring layout) on the banks of the Garonne, known for its faïencerie ceramic workshops. Romanesque church, flat riverside path, artisan shops. Good half-day browse with a Garonne-side picnic.</p>
+    </div>
+  </section>
+
+  <!-- ───── MOUNTAIN TOWNS ───── -->
+  <section id="mountain-towns">
+    <div class="section-header">
+      <div class="section-icon icon-sky">⛰</div>
+      <h2>Mountain Towns</h2>
+      <span class="count">3 destinations</span>
+    </div>
+
+    <div class="info-box">
+      <h3>Note on the earlier list</h3>
+      <p>None of the heritage villages above are true mountain towns — Saint-Bertrand sits at the foot of the Pyrenees, not in them. These three are the real mountain destinations within 30 minutes.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Saint-Béat</h3>
+        <span class="badge badge-mtn">Mountain · Best</span>
+      </div>
+      <div class="card-meta">
+        <span>~30 min south</span><span class="dot">·</span><span>~500 m altitude</span><span class="dot">·</span><span>Narrow Garonne valley</span>
+      </div>
+      <p>The strongest mountain town option. Set in a dramatic narrow Garonne valley at the foot of the Pic du Gar, historically known as the "Key of France" for controlling the mountain pass. Rich heritage: a 12th-century feudal castle with valley views, a Romanesque church listed as a historic monument with sculpted capitals, and famous white marble quarries that supplied stone for Versailles and — by local legend — the Trajan column in Rome. Noticeably cooler than the plains in July.</p>
+      <div class="card-note">Castle and church exterior: free. Old marble quarry sites: free to view. Combine with Col des Ares and Barbazan for a full mountain day.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Aspet</h3>
+        <span class="badge badge-mtn">Mountain</span>
+      </div>
+      <div class="card-meta">
+        <span>~20 min south</span><span class="dot">·</span><span>400–1,240 m altitude</span><span class="dot">·</span><span>Foot of Pic de Cagire</span>
+      </div>
+      <p>A small village 15 km southeast of Saint-Gaudens at the foot of the Cagire peak (1,912 m). More a nature and green tourism village than a heritage one — the draw is the mountain landscape, the cool air, and access to the Col des Ares and Col du Portet d'Aspet passes. Good for a quick wander and a coffee with the mountain backdrop.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Col des Ares</h3>
+        <span class="badge badge-mtn">Mountain pass</span>
+      </div>
+      <div class="card-meta">
+        <span>~25 min south</span><span class="dot">·</span><span>797 m altitude</span><span class="dot">·</span><span>Between Aspet &amp; Saint-Béat</span>
+      </div>
+      <p>A forested mountain pass on the D618 between Aspet and the Garonne valley. Not a village — a scenic stop. Panoramic views over the Garonne valley on the western side. Regularly used by the Tour de France. Cool, wooded, and a good car-stop picnic point en route to Saint-Béat. Idyllic setting with plenty of shade.</p>
+    </div>
+  </section>
+
+  <!-- ───── PICNIC SPOTS ───── -->
+  <section id="picnic-spots">
+    <div class="section-header">
+      <div class="section-icon icon-pine">🌿</div>
+      <h2>Picnic Spots &amp; Outdoor Areas</h2>
+      <span class="count">7 spots</span>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Valcabrère meadows</h3>
+        <span class="badge badge-picnic">Best picnic</span>
+      </div>
+      <div class="card-meta">
+        <span>~20 min south</span><span class="dot">·</span><span>Flat</span><span class="dot">·</span><span>Open meadow</span>
+      </div>
+      <p>Open pastoral meadows surrounding the Basilica of Saint-Just — flat, grassy, with tree shade near the basilica walls and the Pyrenees as backdrop. Possibly the best picnic spot in the area. Combine with the Saint-Bertrand visit (2 km up the hill) for a full morning.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Barbazan lake &amp; thermal park</h3>
+        <span class="badge badge-picnic">Mountain picnic</span>
+      </div>
+      <div class="card-meta">
+        <span>~20 min south</span><span class="dot">·</span><span>~500 m altitude</span><span class="dot">·</span><span>Flat &amp; shaded</span>
+      </div>
+      <p>A small spa village with a picnic-friendly lake (picnic by the water; no swimming) and the adjacent 4.2-hectare Parc des Thermes — a flat, shaded walk under majestic plane trees with a restored Art Deco kiosk fountain and an eerie unfinished chapel. Mountain setting, noticeably cooler than the plains. Fireworks over the lake in July.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Loures-Barousse lake &amp; Garonne banks</h3>
+        <span class="badge badge-picnic">Mountain valley</span>
+      </div>
+      <div class="card-meta">
+        <span>~25 min south</span><span class="dot">·</span><span>~450 m altitude</span><span class="dot">·</span><span>Flat riverbank path</span>
+      </div>
+      <p>A small mountain village in the Barousse valley with a designated picnic zone at the lake (tables and benches), flat Garonne riverbank paths, and a cycling track towards Cierp-Gaud. Pastoral, quiet, and genuinely in the mountains. The Barousse valley has a restorative, unhurried quality — thick forests, grazing land, old stone villages.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Cazarilh plateau (Vallée de la Barousse)</h3>
+        <span class="badge badge-picnic">Wild meadow</span>
+      </div>
+      <div class="card-meta">
+        <span>~30 min south</span><span class="dot">·</span><span>Drive-to</span><span class="dot">·</span><span>Open pastoral meadow</span>
+      </div>
+      <p>Above the village of Cazarilh in the Barousse valley, a small road past the church climbs to an open meadow with big views over the valley and the surrounding mountains. Genuine pastoral landscape — grazing land, complete quiet, no facilities. Drive to the meadow, spread a blanket, let Kai run. A hidden gem.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Col des Ares — wooded pass</h3>
+        <span class="badge badge-picnic">Cool &amp; shaded</span>
+      </div>
+      <div class="card-meta">
+        <span>~25 min south</span><span class="dot">·</span><span>797 m altitude</span><span class="dot">·</span><span>Forested</span>
+      </div>
+      <p>The pass itself has pulloffs with mountain views and dense tree shade. Good for a car-stop picnic on the way to or from Saint-Béat. Idyllic and cool — at 797m it will be several degrees cooler than Gourdan-Polignan on a hot July day.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Lac de Sède, Saint-Gaudens</h3>
+        <span class="badge badge-free">Free</span>
+      </div>
+      <div class="card-meta">
+        <span>~10 min</span><span class="dot">·</span><span>Flat</span><span class="dot">·</span><span>Facilities on site</span>
+      </div>
+      <p>The easiest nearby option for a quick afternoon out. Flat lakeside path with fauna/flora boards, picnic tables and barbecues, a playground, zipline, misting machine, basketball, and a snack bar. Not a mountain spot but very practical — good for the hours around nap time.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Lac de Montréjeau</h3>
+        <span class="badge badge-free">Free</span>
+      </div>
+      <div class="card-meta">
+        <span>~5 min</span><span class="dot">·</span><span>Flat</span><span class="dot">·</span><span>Grassy banks</span>
+      </div>
+      <p>A small recreational lake at the base of Montréjeau with grassy banks and Pyrenees views. Good for a spontaneous short outing combined with a wander through the bastide above. The closest outdoor green space to your base.</p>
+    </div>
+  </section>
+
+  <!-- ───── COMBOS ───── -->
+  <section id="combos">
+    <div class="section-header">
+      <div class="section-icon icon-amber">🗺</div>
+      <h2>Recommended Day Combos</h2>
+    </div>
+
+    <div class="combo-card">
+      <h3>Best mountain day</h3>
+      <div class="combo-stops">
+        <span class="stop-tag">Saint-Béat village</span>
+        <span class="stop-arrow">→</span>
+        <span class="stop-tag">Col des Ares stop</span>
+        <span class="stop-arrow">→</span>
+        <span class="stop-tag">Barbazan lake picnic</span>
+      </div>
+      <p>Drive south to Saint-Béat, explore the castle, church and marble village. Stop at Col des Ares on the way back for views and cool air. End with a shaded lakeside picnic at Barbazan. All under 30 min from base. Back by 12:30 before the heat peaks.</p>
+    </div>
+
+    <div class="combo-card">
+      <h3>Best heritage + picnic day</h3>
+      <div class="combo-stops">
+        <span class="stop-tag">Saint-Bertrand village</span>
+        <span class="stop-arrow">→</span>
+        <span class="stop-tag">Cathedral nave</span>
+        <span class="stop-arrow">→</span>
+        <span class="stop-tag">Valcabrère meadow picnic</span>
+      </div>
+      <p>Start at the Roman ruins below the village while it's cool. Walk up through the medieval gates. Cathedral nave free to enter. Drive down to Valcabrère (2 km) for lunch in the meadows around the basilica. The best all-round day in the area.</p>
+    </div>
+
+    <div class="combo-card">
+      <h3>Quiet Barousse valley day</h3>
+      <div class="combo-stops">
+        <span class="stop-tag">Loures-Barousse lake</span>
+        <span class="stop-arrow">→</span>
+        <span class="stop-tag">Cazarilh plateau meadow</span>
+      </div>
+      <p>Drive into the Barousse valley — slower pace, pastoral beauty, cool mountain air. Picnic at the lake first, then drive up to Cazarilh for an open meadow with big views. No crowds, no entry fees, genuinely restorative.</p>
+    </div>
+
+    <div class="combo-card">
+      <h3>Easy local morning</h3>
+      <div class="combo-stops">
+        <span class="stop-tag">Montréjeau bastide</span>
+        <span class="stop-arrow">→</span>
+        <span class="stop-tag">Valmirande park</span>
+        <span class="stop-arrow">→</span>
+        <span class="stop-tag">Montréjeau lake</span>
+      </div>
+      <p>5 minutes from your base. Walk the bastide square and Pyrenees panorama, stroll the Valmirande arboretum, finish at the lake. All flat, all free, no driving stress. Good for a slow morning or when energy is low.</p>
+    </div>
+  </section>
+
+  <!-- ───── 2-WEEK PLAN ───── -->
+  <section id="planner">
+    <div class="section-header">
+      <div class="section-icon icon-amber">📅</div>
+      <h2>Rough 2-Week Cadence</h2>
+    </div>
+
+    <div class="info-box">
+      <h3>General rhythm</h3>
+      <p>Leave by 9–9:30am, aim home by 12:30pm. Nap time = hottest part of the day. Afternoon: Lac de Sède, Montréjeau lake, or simply rest. Save the furthest/fullest days for when you have most energy.</p>
+    </div>
+
+    <div class="week-block">
+      <div class="week-label">Week 1 — Anchor days</div>
+      <div class="week-days">
+        <div class="day-row">
+          <span class="day-label">D1</span>
+          <div class="day-content">
+            Montréjeau bastide + Valmirande park + lake
+            <div class="day-note">5 min away — settle-in day, no pressure</div>
+          </div>
+        </div>
+        <div class="day-row">
+          <span class="day-label">D2</span>
+          <div class="day-content">
+            Saint-Bertrand-de-Comminges — Roman ruins + village walk
+            <div class="day-note">Morning only, cathedral nave, wander the lanes</div>
+          </div>
+        </div>
+        <div class="day-row">
+          <span class="day-label">D3</span>
+          <div class="day-content">
+            Valcabrère basilica + meadow picnic
+            <div class="day-note">Flat, shaded, easy — follow on from D2 or standalone</div>
+          </div>
+        </div>
+        <div class="day-row">
+          <span class="day-label">D4</span>
+          <div class="day-content">
+            Saint-Béat + Col des Ares + Barbazan lake
+            <div class="day-note">Best mountain day — start early</div>
+          </div>
+        </div>
+        <div class="day-row">
+          <span class="day-label">D5</span>
+          <div class="day-content">
+            Rest day — Lac de Sède, Saint-Gaudens market (Thursday)
+            <div class="day-note">Misting machine at the lake, buy local produce</div>
+          </div>
+        </div>
+        <div class="day-row">
+          <span class="day-label">D6</span>
+          <div class="day-content">
+            Aurignac medieval village
+            <div class="day-note">25 min north — hilltop views, cooler air</div>
+          </div>
+        </div>
+        <div class="day-row">
+          <span class="day-label">D7</span>
+          <div class="day-content">
+            Free / flexible
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="week-block">
+      <div class="week-label">Week 2 — Fill days</div>
+      <div class="week-days">
+        <div class="day-row">
+          <span class="day-label">D8</span>
+          <div class="day-content">
+            Return to Saint-Bertrand — cloister &amp; choir inside
+            <div class="day-note">See it properly the second time</div>
+          </div>
+        </div>
+        <div class="day-row">
+          <span class="day-label">D9</span>
+          <div class="day-content">
+            Loures-Barousse lake + Cazarilh plateau meadow
+            <div class="day-note">Quiet Barousse valley day</div>
+          </div>
+        </div>
+        <div class="day-row">
+          <span class="day-label">D10</span>
+          <div class="day-content">
+            Valmirande guided tour (from 14 July, daily at 16h)
+            <div class="day-note">Afternoon outing — book/call ahead, cash only</div>
+          </div>
+        </div>
+        <div class="day-row">
+          <span class="day-label">D11</span>
+          <div class="day-content">
+            L'Isle-en-Dodon — fortified village + church
+            <div class="day-note">30 min north, slow morning, very local feel</div>
+          </div>
+        </div>
+        <div class="day-row">
+          <span class="day-label">D12</span>
+          <div class="day-content">
+            Martres-Tolosane + Garonne riverside picnic
+            <div class="day-note">25 min east, ceramic village</div>
+          </div>
+        </div>
+        <div class="day-row">
+          <span class="day-label">D13</span>
+          <div class="day-content">
+            Repeat favourite — Valcabrère meadow or Barousse valley
+          </div>
+        </div>
+        <div class="day-row">
+          <span class="day-label">D14</span>
+          <div class="day-content">
+            Free / last morning in the area
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── TIPS ───── -->
+  <section id="tips">
+    <div class="section-header">
+      <div class="section-icon icon-rust">💡</div>
+      <h2>Practical Tips</h2>
+    </div>
+
+    <div class="tip-box">
+      <h3>July heat</h3>
+      <ul>
+        <li>Leave by 9–9:30am. Aim to be back by 12:30pm.</li>
+        <li>Afternoons routinely hit 35°C+ on the plains — stay in shade or stay home.</li>
+        <li>Mountain spots (Saint-Béat, Barbazan, Col des Ares) are several degrees cooler.</li>
+        <li>Valcabrère meadows have shade near the basilica walls — good choice on hot days.</li>
+        <li>Lac de Sède in Saint-Gaudens has a misting machine — useful for afternoon toddler energy.</li>
+      </ul>
+    </div>
+
+    <div class="tip-box">
+      <h3>With Kai (20 months)</h3>
+      <ul>
+        <li>Roman ruins at Saint-Bertrand are flat open ground — ideal for running freely.</li>
+        <li>Valcabrère meadows: flat grass, no fences, Kai can roam while you picnic.</li>
+        <li>Barbazan lake: flat grassy banks, but no swimming allowed.</li>
+        <li>Lac de Sède: playground, zipline (spectator sport for Kai), flat path.</li>
+        <li>All heritage towns (Montréjeau, Saint-Bertrand village lanes) involve some uphill — buggy or carrier depending on distance.</li>
+        <li>Cazarilh plateau: you drive to the meadow, minimal walking required.</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <h3>Key logistics</h3>
+      <ul>
+        <li><strong>Valmirande tours:</strong> From 14 July, daily at 16h. Cash only. Tel: +33 6 21 05 40 16. Meet at front gates on RD 817 (direction Tarbes).</li>
+        <li><strong>Saint-Gaudens market:</strong> Thursday, weekly, in the town centre.</li>
+        <li><strong>Saint-Bertrand:</strong> Small car park at top of the village (narrow one-way road) — avoids the long walk from the main car park below.</li>
+        <li><strong>Barousse valley access:</strong> From the A64, exit 17 (Montréjeau), then follow RN 125 south.</li>
+        <li><strong>Fuel:</strong> Fill up in Saint-Gaudens or Montréjeau — no stations in the mountain villages.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+</main>
+
+<footer>
+  Gourdan-Polignan · Comminges · July stay guide
+</footer>
+
+</body>
+</html>
