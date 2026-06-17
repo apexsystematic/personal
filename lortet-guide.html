@@ -3,14 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lortet — July Stay Guide</title>
+<title>Lortet — July 2026 Stay Guide</title>
 <style>
   :root {
     --slate: #2B3A42;
-    --slate-mid: #3D5360;
     --mist: #F0F4F5;
     --cloud: #E4ECF0;
-    --ice: #FAFCFD;
     --stone: #8FA3AD;
     --granite: #5C7885;
     --pine: #2D5A3D;
@@ -23,404 +21,149 @@
     --amber-light: #F4EDE0;
     --meadow: #3D6B3A;
     --meadow-light: #EBF3E8;
+    --warn: #7A3A00;
+    --warn-light: #FFF0E0;
     --ink: #1C2B32;
     --muted: #6B8590;
     --border: #D4E0E6;
     --white: #FDFEFF;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
+  body { font-family: 'Georgia', serif; background: var(--mist); color: var(--ink); font-size: 16px; line-height: 1.65; }
 
-  body {
-    font-family: 'Georgia', serif;
-    background: var(--mist);
-    color: var(--ink);
-    font-size: 16px;
-    line-height: 1.65;
-  }
+  /* HEADER */
+  header { background: var(--slate); color: var(--white); padding: 2.5rem 1.25rem 2.25rem; text-align: center; position: relative; overflow: hidden; }
+  header::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(29,74,110,0.35) 0%, transparent 60%); pointer-events: none; }
+  header .eyebrow { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 0.7rem; }
+  header h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); font-weight: normal; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 0.35rem; }
+  header h1 span { display: block; font-size: clamp(0.9rem, 3vw, 1.15rem); font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; letter-spacing: 0.04em; color: rgba(255,255,255,0.55); margin-top: 0.2rem; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 1.4rem; }
+  .meta-pill { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); border-radius: 99px; padding: 3px 12px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: rgba(255,255,255,0.75); }
 
-  /* ── HEADER ── */
-  header {
-    background: var(--slate);
-    color: var(--white);
-    padding: 2.5rem 1.25rem 2.25rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(160deg, rgba(29,74,110,0.35) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  header .eyebrow {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-    margin-bottom: 0.7rem;
-  }
-  header h1 {
-    font-size: clamp(1.8rem, 7vw, 2.8rem);
-    font-weight: normal;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: 0.35rem;
-  }
-  header h1 span {
-    display: block;
-    font-size: clamp(0.9rem, 3vw, 1.15rem);
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    color: rgba(255,255,255,0.55);
-    margin-top: 0.2rem;
-  }
-  .meta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    justify-content: center;
-    margin-top: 1.4rem;
-  }
-  .meta-pill {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 99px;
-    padding: 3px 12px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 11px;
-    color: rgba(255,255,255,0.75);
-    letter-spacing: 0.03em;
-  }
-
-  /* ── BASE INFO STRIP ── */
-  .base-strip {
-    background: var(--alpine);
-    color: rgba(255,255,255,0.9);
-    padding: 0.75rem 1.25rem;
-    text-align: center;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.02em;
-  }
+  /* BASE STRIP */
+  .base-strip { background: var(--alpine); color: rgba(255,255,255,0.9); padding: 0.75rem 1.25rem; text-align: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; }
   .base-strip strong { color: #fff; font-weight: 600; }
 
-  /* ── NAV ── */
-  nav {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
+  /* NAV */
+  nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   nav::-webkit-scrollbar { display: none; }
-  .nav-inner {
-    display: flex;
-    min-width: max-content;
-    padding: 0 1rem;
-  }
-  nav a {
-    display: block;
-    padding: 0.75rem 0.9rem;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--stone);
-    text-decoration: none;
-    white-space: nowrap;
-    border-bottom: 2px solid transparent;
-    transition: color 0.15s, border-color 0.15s;
-  }
+  .nav-inner { display: flex; min-width: max-content; padding: 0 1rem; }
+  nav a { display: block; padding: 0.75rem 0.9rem; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--stone); text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s; }
   nav a:hover { color: var(--slate); border-bottom-color: var(--alpine); }
 
-  /* ── MAIN ── */
+  /* FILTER BAR */
+  .filter-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 0.6rem 1rem; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .filter-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone); margin-right: 4px; white-space: nowrap; }
+  .filter-btn { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 99px; border: 1.5px solid var(--border); background: transparent; color: var(--granite); cursor: pointer; white-space: nowrap; transition: all 0.15s; }
+  .filter-btn:hover { border-color: var(--alpine); color: var(--alpine); }
+  .filter-btn.active { background: var(--alpine); border-color: var(--alpine); color: #fff; }
+  .filter-btn.all.active { background: var(--slate); border-color: var(--slate); color: #fff; }
+
+  /* MAIN */
   main { max-width: 700px; margin: 0 auto; padding: 0 1rem 4rem; }
 
-  /* ── SECTION ── */
+  /* SECTION */
   section { padding-top: 2.5rem; }
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1.25rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .section-icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 9px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 17px;
-    flex-shrink: 0;
-  }
-  .icon-alpine  { background: var(--alpine-light); }
-  .icon-pine    { background: var(--pine-light); }
-  .icon-rust    { background: var(--rust-light); }
-  .icon-amber   { background: var(--amber-light); }
-  .icon-meadow  { background: var(--meadow-light); }
+  .section-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .section-icon { width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+  .icon-alpine { background: var(--alpine-light); }
+  .icon-pine   { background: var(--pine-light); }
+  .icon-rust   { background: var(--rust-light); }
+  .icon-amber  { background: var(--amber-light); }
+  .icon-meadow { background: var(--meadow-light); }
+  .section-header h2 { font-size: 1.1rem; font-weight: normal; letter-spacing: -0.01em; flex: 1; }
+  .section-header .count { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--stone); white-space: nowrap; }
 
-  .section-header h2 {
-    font-size: 1.1rem;
-    font-weight: normal;
-    letter-spacing: -0.01em;
-    flex: 1;
-  }
-  .section-header .count {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 11px;
-    color: var(--stone);
-    white-space: nowrap;
-  }
-
-  /* ── CARDS ── */
-  .card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1rem 1.15rem 1.05rem;
-    margin-bottom: 10px;
-  }
-  .card-top {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-    margin-bottom: 0.35rem;
-    flex-wrap: wrap;
-  }
-  .card-top h3 {
-    font-size: 1rem;
-    font-weight: normal;
-    letter-spacing: -0.01em;
-    line-height: 1.3;
-    flex: 1;
-    min-width: 140px;
-  }
+  /* CARDS */
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.15rem 1.05rem; margin-bottom: 10px; transition: opacity 0.2s; }
+  .card.hidden { display: none; }
+  .card-top { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.35rem; flex-wrap: wrap; }
+  .card-top h3 { font-size: 1rem; font-weight: normal; letter-spacing: -0.01em; line-height: 1.3; flex: 1; min-width: 140px; }
   .badges { display: flex; gap: 5px; flex-wrap: wrap; flex-shrink: 0; }
-  .badge {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    padding: 2px 8px;
-    border-radius: 99px;
-    white-space: nowrap;
-  }
+  .badge { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; white-space: nowrap; }
   .b-star   { background: var(--alpine-light); color: var(--alpine); }
   .b-free   { background: var(--meadow-light); color: var(--meadow); }
-  .b-part   { background: var(--amber-light);  color: var(--amber); }
+  .b-part   { background: var(--amber-light); color: var(--amber); }
   .b-mtn    { background: var(--alpine-light); color: var(--alpine); }
-  .b-over   { background: #F0EDE8; color: #7A6040; }
   .b-picnic { background: var(--meadow-light); color: var(--meadow); }
-  .b-combo  { background: var(--pine-light); color: var(--pine); }
+  .b-village{ background: var(--rust-light); color: var(--rust); }
+  .b-heritage{ background: var(--amber-light); color: var(--amber); }
+  .b-local  { background: var(--cloud); color: var(--granite); }
 
   /* stat row */
-  .stat-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 0.6rem;
-  }
-  .stat {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 11px;
-    color: var(--granite);
-    background: var(--mist);
-    border: 1px solid var(--cloud);
-    border-radius: 6px;
-    padding: 3px 8px;
-    white-space: nowrap;
-  }
-  .stat-icon { font-size: 11px; }
+  .stat-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.6rem; }
+  .stat { display: flex; align-items: center; gap: 4px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--granite); background: var(--mist); border: 1px solid var(--cloud); border-radius: 6px; padding: 3px 8px; white-space: nowrap; }
+  .stat.over-limit { background: var(--warn-light); border-color: #F0C090; color: var(--warn); font-weight: 700; }
 
-  .card p {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.65;
-  }
+  .card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+  /* over-limit warning */
+  .over-warning { margin-top: 0.55rem; padding: 0.45rem 0.75rem; background: var(--warn-light); border-left: 3px solid #E08030; border-radius: 0 6px 6px 0; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--warn); line-height: 1.5; }
+  .over-warning strong { font-weight: 700; }
 
   /* parking note */
-  .parking-note {
-    margin-top: 0.6rem;
-    display: flex;
-    gap: 6px;
-    align-items: flex-start;
-    background: var(--mist);
-    border-left: 3px solid var(--border);
-    border-radius: 0 6px 6px 0;
-    padding: 0.4rem 0.7rem;
-  }
+  .parking-note { margin-top: 0.6rem; display: flex; gap: 6px; align-items: flex-start; background: var(--mist); border-left: 3px solid var(--border); border-radius: 0 6px 6px 0; padding: 0.4rem 0.7rem; }
   .parking-note .p-icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
-  .parking-note p {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 12px;
-    color: var(--granite);
-    line-height: 1.5;
-  }
+  .parking-note p { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--granite); line-height: 1.5; }
 
   /* extra note */
-  .extra-note {
-    margin-top: 0.5rem;
-    padding: 0.4rem 0.7rem;
-    background: var(--amber-light);
-    border-radius: 6px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 12px;
-    color: var(--amber);
-    line-height: 1.5;
-  }
+  .extra-note { margin-top: 0.5rem; padding: 0.4rem 0.7rem; background: var(--amber-light); border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--amber); line-height: 1.5; }
 
-  /* ── COMBO CARDS ── */
-  .combo-card {
-    background: var(--slate);
-    color: var(--white);
-    border-radius: 12px;
-    padding: 1.1rem 1.2rem;
-    margin-bottom: 10px;
-  }
-  .combo-label {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 0.4rem;
-  }
-  .combo-stops {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-bottom: 0.6rem;
-  }
-  .stop-tag {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 99px;
-    padding: 3px 10px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 12px;
-    color: rgba(255,255,255,0.88);
-  }
+  /* COMBO CARDS */
+  .combo-card { background: var(--slate); color: var(--white); border-radius: 12px; padding: 1.1rem 1.2rem; margin-bottom: 10px; }
+  .combo-card.flagged { background: #4A3520; }
+  .combo-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 0.4rem; }
+  .combo-flag { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #FFB060; margin-bottom: 0.4rem; }
+  .combo-stops { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; margin-bottom: 0.6rem; }
+  .stop-tag { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); border-radius: 99px; padding: 3px 10px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: rgba(255,255,255,0.88); }
+  .stop-tag.over { background: rgba(255,160,60,0.18); border-color: rgba(255,160,60,0.4); color: #FFB060; }
   .stop-arrow { color: rgba(255,255,255,0.3); font-size: 13px; }
   .combo-card p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+  .combo-alt { margin-top: 0.5rem; padding: 0.4rem 0.7rem; background: rgba(255,255,255,0.08); border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: rgba(255,200,120,0.9); line-height: 1.5; }
 
-  /* ── WEEK PLAN ── */
-  .week-block {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 10px;
-  }
-  .week-label {
-    background: var(--mist);
-    border-bottom: 1px solid var(--border);
-    padding: 0.5rem 1rem;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--granite);
-  }
+  /* WEEK PLAN */
+  .week-block { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 10px; }
+  .week-label { background: var(--mist); border-bottom: 1px solid var(--border); padding: 0.5rem 1rem; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--granite); }
   .week-days { padding: 0.3rem 0 0.5rem; }
-  .day-row {
-    display: grid;
-    grid-template-columns: 90px 1fr;
-    gap: 0.5rem;
-    padding: 0.4rem 1rem;
-    border-bottom: 1px solid var(--mist);
-    align-items: start;
-  }
+  .day-row { display: grid; grid-template-columns: 90px 1fr; gap: 0.5rem; padding: 0.4rem 1rem; border-bottom: 1px solid var(--mist); align-items: start; }
   .day-row:last-child { border-bottom: none; }
-  .day-meta {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 11px;
-    color: var(--stone);
-    padding-top: 2px;
-    line-height: 1.4;
-  }
+  .day-row.flagged-day { background: #FFF8F0; }
+  .day-meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--stone); padding-top: 2px; line-height: 1.4; }
   .day-meta .day-num { font-weight: 700; color: var(--granite); display: block; }
   .day-content { font-size: 13px; color: var(--ink); line-height: 1.5; }
-  .day-sub {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 11px;
-    color: var(--stone);
-    margin-top: 1px;
-    display: block;
-  }
+  .day-sub { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--stone); margin-top: 1px; display: block; }
+  .day-flag { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--warn); margin-top: 2px; display: block; font-weight: 600; }
+  .day-alt { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--pine); margin-top: 2px; display: block; }
 
-  /* ── TIP BOXES ── */
-  .tip-box {
-    border-radius: 12px;
-    padding: 1rem 1.1rem;
-    margin-bottom: 10px;
-  }
+  /* TIP BOXES */
+  .tip-box { border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: 10px; }
   .tip-box.heat  { background: var(--rust-light); border: 1px solid #E8C5BA; }
   .tip-box.kai   { background: var(--pine-light); border: 1px solid #C2DACC; }
   .tip-box.info  { background: var(--alpine-light); border: 1px solid #BAD2E5; }
-  .tip-box h3 {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.5rem;
-  }
+  .tip-box h3 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
   .tip-box.heat h3 { color: var(--rust); }
   .tip-box.kai  h3 { color: var(--pine); }
   .tip-box.info h3 { color: var(--alpine); }
   .tip-box ul { padding-left: 1.1rem; }
-  .tip-box li, .tip-box p {
-    font-size: 13.5px;
-    line-height: 1.65;
-    margin-bottom: 0.25rem;
-  }
+  .tip-box li, .tip-box p { font-size: 13.5px; line-height: 1.65; margin-bottom: 0.25rem; }
   .tip-box.heat li, .tip-box.heat p { color: #6B2810; }
   .tip-box.kai  li, .tip-box.kai  p { color: #1E4A2C; }
   .tip-box.info li, .tip-box.info p { color: #163A56; }
-  .tip-box li strong, .tip-box p strong { font-style: normal; font-weight: 600; }
+  .tip-box li strong { font-weight: 600; }
 
-  footer {
-    text-align: center;
-    padding: 1.5rem 1rem 2rem;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 11px;
-    color: var(--stone);
-    letter-spacing: 0.05em;
-  }
+  footer { text-align: center; padding: 1.5rem 1rem 2rem; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--stone); letter-spacing: 0.05em; }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="eyebrow">Family Travel Guide · July 2025</div>
+  <div class="eyebrow">Family Travel Guide · July 2026</div>
   <h1>Lortet & the Aure Valley
     <span>Hautes-Pyrénées · Pyrenees · Occitanie</span>
   </h1>
   <div class="meta-row">
-    <span class="meta-pill">13–24 July</span>
-    <span class="meta-pill">Max 30–35 min drive</span>
+    <span class="meta-pill">13–24 July 2026</span>
     <span class="meta-pill">Kai · 20 months</span>
     <span class="meta-pill">Free & walk-around sites</span>
     <span class="meta-pill">Mountain towns + meadows</span>
@@ -429,8 +172,9 @@
 
 <div class="base-strip">
   <strong>Base:</strong> 2 Impasse de l'Église, Lortet 65250 &nbsp;·&nbsp;
-  <strong>Altitude:</strong> 545–809 m (avg. 624 m) &nbsp;·&nbsp;
-  <strong>July temps:</strong> ~24–27°C days, ~15°C nights
+  <strong>Altitude:</strong> ~550 m &nbsp;·&nbsp;
+  <strong>July temps:</strong> ~24–27°C days, ~15°C nights &nbsp;·&nbsp;
+  <strong>Limit:</strong> 35 min · ⚠️ = over limit
 </div>
 
 <nav>
@@ -444,733 +188,640 @@
   </div>
 </nav>
 
+<div class="filter-bar">
+  <span class="filter-label">Filter:</span>
+  <button class="filter-btn all active" onclick="filterCards('all')">All</button>
+  <button class="filter-btn" onclick="filterCards('top-pick')">⭐ Top pick</button>
+  <button class="filter-btn" onclick="filterCards('mountain')">⛰ Mountain</button>
+  <button class="filter-btn" onclick="filterCards('village')">🏘 Village</button>
+  <button class="filter-btn" onclick="filterCards('heritage')">🏛 Heritage</button>
+  <button class="filter-btn" onclick="filterCards('picnic')">🌿 Picnic</button>
+  <button class="filter-btn" onclick="filterCards('free')">✓ Free</button>
+  <button class="filter-btn" onclick="filterCards('local')">📍 On doorstep</button>
+  <button class="filter-btn" onclick="filterCards('over-limit')">⚠️ Over limit</button>
+</div>
+
 <main>
 
-  <!-- ───── MOUNTAIN TOWNS ───── -->
-  <section id="mountain">
-    <div class="section-header">
-      <div class="section-icon icon-alpine">⛰</div>
-      <h2>Mountain Towns</h2>
-      <span class="count">4 towns</span>
-    </div>
+<!-- ───── MOUNTAIN TOWNS ───── -->
+<section id="mountain">
+  <div class="section-header">
+    <div class="section-icon icon-alpine">⛰</div>
+    <h2>Mountain Towns</h2>
+    <span class="count">6 towns</span>
+  </div>
 
-    <div class="card">
-      <div class="card-top">
-        <h3>Arreau</h3>
-        <div class="badges">
-          <span class="badge b-star">Top pick</span>
-          <span class="badge b-free">Free to walk</span>
+  <div class="card" data-tags="top-pick mountain village free">
+    <div class="card-top">
+      <h3>Arreau</h3>
+      <div class="badges"><span class="badge b-star">Top pick</span><span class="badge b-mtn">Mountain</span><span class="badge b-free">Free to walk</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat">🚗 21 min · 17.5 km</span>
+      <span class="stat">⛰ 730 m avg</span>
+      <span class="stat">📍 D929 south</span>
+    </div>
+    <p>The finest mountain village in the area — former capital of the "4 Valleys" at the confluence of the Neste d'Aure and Neste du Louron. Protected architectural zone: medieval alleys, 16th–18th c. half-timbered slate-roofed houses, the Maison des Lys with its fleur-de-lys colombage facade, Château de Ségure (16th c.), Château des Nestes (tourist office + Cagots museum), 16th c. market hall with clocktower, and two Romanesque churches. Beautiful riverside quayside on the Neste du Louron. Thursday market — local producers.</p>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Free car park at Place de la Mairie village entrance. Flat, stroller-friendly quayside from there.</p></div>
+    <div class="extra-note">Thursday market: arrive by 9:30am. Free to browse throughout.</div>
+  </div>
+
+  <div class="card" data-tags="mountain village free">
+    <div class="card-top">
+      <h3>Jézeau</h3>
+      <div class="badges"><span class="badge b-mtn">Mountain</span><span class="badge b-village">Village</span><span class="badge b-star">UNESCO</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat">🚗 26 min · 19.9 km</span>
+      <span class="stat">⛰ ~750 m</span>
+      <span class="stat">📍 D929 then D19, above Arreau</span>
+    </div>
+    <p>A tiny village perched just above Arreau with an exceptional UNESCO-listed 12th-century church. Interior has extraordinary 16th-century painted murals covering walls and vaulted ceiling — one of the 4 emblematic heritage sites of the Grand Site d'Occitanie. Beautiful Renaissance village architecture: open galleries, carved lintels, old barn doors. Local artisans produce Saffron of the Pyrenees. 5 minutes above Arreau — always combine the two.</p>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Small free car park at village entrance off the D19. 2-min walk to church. Check with Arreau tourist office for church opening hours before visiting.</p></div>
+  </div>
+
+  <div class="card" data-tags="mountain village free">
+    <div class="card-top">
+      <h3>Ancizan</h3>
+      <div class="badges"><span class="badge b-mtn">Mountain</span><span class="badge b-village">Village</span><span class="badge b-free">Free</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat">🚗 28 min · 21.5 km</span>
+      <span class="stat">⛰ ~800 m</span>
+      <span class="stat">📍 D929 then D19, past Arreau</span>
+    </div>
+    <p>A 15th-century cloth-weaving village in the upper Aure valley, 5 min past Arreau at 800m. Original window frames, aged wood barn doors and lintels, old slate roofs, and remains of the weavers' hall. A still-active village farm, summer cattle movements to high pastures in July. Unhurried, completely authentic. 20–30 min wander on foot then turn back or continue to Sarrancolin.</p>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Free roadside parking in the village centre on the D19. Very small village — no formal car park but easy to find a space.</p></div>
+  </div>
+
+  <div class="card" data-tags="mountain village free">
+    <div class="card-top">
+      <h3>Sarrancolin</h3>
+      <div class="badges"><span class="badge b-mtn">Mountain</span><span class="badge b-village">Village</span><span class="badge b-free">Free exterior</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat">🚗 14 min · 9.6 km</span>
+      <span class="stat">⛰ ~630 m avg</span>
+      <span class="stat">📍 D78 then D929</span>
+    </div>
+    <p>A fortified medieval village on the Neste d'Aure, 14 minutes from your door. Famous worldwide for its pink-veined marble quarried here since the 17th century — the same marble is in the Opéra Garnier, the Petit Trianon at Versailles, and the Empire State Building lobby. The Prison Gate (16th c. fortification) is the southern entrance to the old town. The Romanesque church of Saint-Ebons (11th–12th c.) has exceptional altarpieces inside. Good for a quick wander or afternoon visit — close enough to revisit on any day.</p>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Free parking along the D929 near the church and Place de la Mairie. Flat access into the old town.</p></div>
+  </div>
+
+  <div class="card" data-tags="mountain village free over-limit">
+    <div class="card-top">
+      <h3>Bagnères-de-Bigorre</h3>
+      <div class="badges"><span class="badge b-mtn">Mountain spa town</span><span class="badge b-free">Free to walk</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat over-limit">⚠️ 37 min · 30.5 km · OVER LIMIT</span>
+      <span class="stat">⛰ ~550 m</span>
+      <span class="stat">📍 D938 northwest</span>
+    </div>
+    <p>A proper Pyrenean spa town with genuine architectural character — neo-classical Grands Thermes, a Belle Époque covered market hall (Les Halles, best Saturday market in the area: cheese, charcuterie, fish, oyster bar, local singing group Les Chanteurs Montagnards), a Romanesque church (listed monument), the Cloître Saint-Jean, and a historic town centre. Most substantial town in range — good for provisions, pharmacy, and a proper browse. July temperatures ~13–25°C.</p>
+    <div class="over-warning"><strong>⚠️ 37 min from Lortet</strong> — 2 minutes over the 35-min limit. Manageable if you leave early. <strong>Alternative within limit:</strong> Arreau (21 min) has a Thursday market with similar atmosphere and local producers.</div>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Multiple free and paid car parks. Parking Salies (near Les Halles) is best for the Saturday market. Flat centre — good with a pushchair.</p></div>
+    <div class="extra-note">Saturday market at Les Halles: arrive by 9am. Gets very busy from 10am.</div>
+  </div>
+
+  <div class="card" data-tags="mountain village free over-limit">
+    <div class="card-top">
+      <h3>Campan village</h3>
+      <div class="badges"><span class="badge b-mtn">Mountain</span><span class="badge b-village">Village</span><span class="badge b-free">Free</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat over-limit">⚠️ 44 min · 36.3 km · OVER LIMIT</span>
+      <span class="stat">⛰ ~656 m avg</span>
+      <span class="stat">📍 D938 via Bagnères</span>
+    </div>
+    <p>A beautifully preserved mountain village in the pastoral Campan valley. The star feature is the Halle de Campan — a covered market hall built in 1571, the oldest in the Hautes-Pyrénées, with original cylindrical stone pillars. Also a Renaissance-portal church of Saint-Vincent (listed monument), multiple fountains, lavoirs, old stone courtyards, and Pyrenean farmhouses. Flat Adour riverside path. Combines well with a drive up to Lac de Payolle (10 min further south).</p>
+    <div class="over-warning"><strong>⚠️ 44 min from Lortet</strong> — significantly over limit. Only worthwhile if combined with Bagnères market (Saturday) as a single outing. <strong>Alternative within limit:</strong> Arreau (21 min) has a comparable 16th-century market hall and a similar mountain village character.</div>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Free parking at Place de la Halle beside the market hall. Flat and central. Park here and walk — do not continue south without stopping first.</p></div>
+  </div>
+
+</section>
+
+<!-- ───── HERITAGE ───── -->
+<section id="heritage">
+  <div class="section-header">
+    <div class="section-icon icon-rust">🏛</div>
+    <h2>Heritage — Villages & Architecture</h2>
+    <span class="count">4 sites</span>
+  </div>
+
+  <div class="card" data-tags="top-pick heritage village free">
+    <div class="card-top">
+      <h3>Saint-Bertrand-de-Comminges</h3>
+      <div class="badges"><span class="badge b-star">Top pick</span><span class="badge b-heritage">UNESCO</span><span class="badge b-part">Partial charge</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat">🚗 28 min · 23.6 km</span>
+      <span class="stat">⛰ ~480 m</span>
+      <span class="stat">📍 D938 then D26</span>
+    </div>
+    <p>The unmissable heritage site of the entire region. Roman ruins of Lugdunum Convenarum (forum, baths, theatre — all open-air and flat: Kai can run freely). Medieval walled village with half-timbered lanes and the Cathedral of Sainte-Marie — built 12th–16th century, nicknamed the "Mont Saint-Michel of the Pyrenees." Plan two visits: first the Roman ruins and village exterior, second the cathedral interior proper.</p>
+    <div class="parking-note"><span class="p-icon">🅿</span><p><strong>Lower car park:</strong> large free meadow car park at the base (Route de Valcabrère). Best with a pushchair. <strong>Upper car park:</strong> small, at village entrance via narrow one-way road from south — fills by 10am in July. Lower car park is better with Kai.</p></div>
+    <div class="extra-note">Cathedral nave: free. Cloister, choir & museum: ~€5. Roman site: free. Leave by 9am — coaches arrive by 10:30am.</div>
+  </div>
+
+  <div class="card" data-tags="top-pick heritage picnic free">
+    <div class="card-top">
+      <h3>Basilica of Saint-Just, Valcabrère</h3>
+      <div class="badges"><span class="badge b-star">Top picnic</span><span class="badge b-heritage">UNESCO</span><span class="badge b-free">Free exterior</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat">🚗 29 min · 24.0 km</span>
+      <span class="stat">⛰ ~470 m</span>
+      <span class="stat">📍 1 km below Saint-Bertrand · D26</span>
+    </div>
+    <p>An 11th–12th century Romanesque basilica standing alone in open meadows at the foot of Saint-Bertrand hill. Built partly from salvaged Roman stone. One of the finest picnic spots in the area: flat grassy meadows, tree shade near the basilica walls, Pyrenees backdrop. On the Santiago de Compostela UNESCO route. Always combine with Saint-Bertrand — only 1 km apart.</p>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Free car park directly beside the basilica on the D26. Flat, spacious, picnic tables and shade under trees nearby.</p></div>
+  </div>
+
+  <div class="card" data-tags="heritage mountain village free over-limit">
+    <div class="card-top">
+      <h3>Saint-Béat</h3>
+      <div class="badges"><span class="badge b-mtn">Mountain</span><span class="badge b-heritage">Heritage</span><span class="badge b-free">Free exterior</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat over-limit">⚠️ 47 min · 51.8 km · OVER LIMIT</span>
+      <span class="stat">⛰ ~500 m</span>
+      <span class="stat">📍 A64 then N125</span>
+    </div>
+    <p>A dramatic mountain village in a tight Garonne valley — historically the "Key of France" controlling the mountain pass to Spain. 12th-century feudal castle ruins with valley views, a Romanesque church with fine sculpted capitals, and famous white marble quarries that supplied Versailles and (by local legend) the Trajan Column in Rome. The drive via the A64 motorway is longer than expected — 47 min, making it the furthest destination in this guide.</p>
+    <div class="over-warning"><strong>⚠️ 47 min from Lortet</strong> — significantly over limit. Only attempt on a day when you leave very early (by 8:30am) and want a full mountain outing. <strong>Alternative within limit:</strong> Sarrancolin (14 min) has similar marble heritage and medieval character at a fraction of the drive time.</div>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Free parking at the village entrance on the D44 (Garonne riverside). Village is compact and walkable from there in 10 minutes. Don't attempt to drive through the narrow upper village streets.</p></div>
+  </div>
+
+  <div class="card" data-tags="heritage local free">
+    <div class="card-top">
+      <h3>Grottes Fortifiées de Lortet</h3>
+      <div class="badges"><span class="badge b-local">On doorstep</span><span class="badge b-free">Free exterior</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat">🚗 1 min · 270 m</span>
+      <span class="stat">⛰ 600–725 m</span>
+      <span class="stat">📍 Above D278, Lortet</span>
+    </div>
+    <p>Lortet's own hidden heritage. 12th-century fortified cave complex built between 600 and 725m in a natural rock breach — a complete castle ensemble adapted to a vertical cliff face, with a 17-step stone stair tower. A second cave discovered in 1873 contained Palaeolithic engravings and bone carvings now in the Musée de l'Homme in Paris. Remarkable setting even from the road below.</p>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Park at the Mairie (your address — 2 Impasse de l'Église). 2-min walk. Note: rock face under municipal access restriction since 2004 following rockfall — check locally before approaching closely.</p></div>
+  </div>
+
+</section>
+
+<!-- ───── OUTDOORS & PICNICS ───── -->
+<section id="outdoors">
+  <div class="section-header">
+    <div class="section-icon icon-meadow">🌿</div>
+    <h2>Outdoors, Meadows & Picnics</h2>
+    <span class="count">9 spots</span>
+  </div>
+
+  <div class="card" data-tags="local picnic free">
+    <div class="card-top">
+      <h3>Neste riverbanks, Lortet</h3>
+      <div class="badges"><span class="badge b-local">On doorstep</span><span class="badge b-picnic">Picnic</span><span class="badge b-free">Free</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat">🚶 0 min · Walking distance</span>
+      <span class="stat">⛰ ~550 m</span>
+      <span class="stat">📍 Lortet village</span>
+    </div>
+    <p>The Neste d'Aure river runs directly alongside the village. Flat grassy banks, mountain backdrop, the sound of the river. No-effort option for Kai to run around and throw stones in the water. One of the most scenic river sections in the valley (no-kill fishing stretch between Lortet and Izaux). Good for early morning or late afternoon when you don't want to drive.</p>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Park at the Mairie (your address) and walk 3 minutes to the river. No specific car park needed.</p></div>
+  </div>
+
+  <div class="card" data-tags="picnic free mountain">
+    <div class="card-top">
+      <h3>Gourgue d'Asque — "Petite Amazonie"</h3>
+      <div class="badges"><span class="badge b-star">Hidden gem</span><span class="badge b-picnic">Cool gorge</span><span class="badge b-free">Free trail</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat">🚗 28 min · 18.6 km</span>
+      <span class="stat">⛰ ~586 m</span>
+      <span class="stat">📍 D26 northwest · Asque village</span>
+    </div>
+    <p>A narrow limestone gorge nicknamed the "Petite Amazonie des Pyrénées" for its extraordinary microclimate. Near-100% humidity has produced a moss-draped rainforest: ancient boxwood trees coated in lichen, ferns covering every rock, river pools, and barely-penetrating canopy light. Despite 34°C outside, inside the gorge you feel none of it — cool, green, and otherworldly. The first 1.2 km from the car park is accessible for pushchairs along a flat path beside the stream. Perfect hot-day escape. Kai will be mesmerised.</p>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Two small paid car parks at the trailhead in Asque village, off the D26. €4 for 8 hours via ticket machine. Picnic tables in the car park. Follow signs carefully from the D26 junction — not well signposted from the main road.</p></div>
+    <div class="extra-note">Stick to the first 1.5–2 km with Kai. Even better on a cloudy day — gorge becomes even more atmospheric.</div>
+  </div>
+
+  <div class="card" data-tags="top-pick picnic heritage free">
+    <div class="card-top">
+      <h3>Valcabrère meadows</h3>
+      <div class="badges"><span class="badge b-star">Best picnic</span><span class="badge b-picnic">Meadow</span><span class="badge b-free">Free</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat">🚗 29 min · 24.0 km</span>
+      <span class="stat">⛰ ~470 m</span>
+      <span class="stat">📍 D26 · below Saint-Bertrand</span>
+    </div>
+    <p>Open pastoral meadows surrounding the Basilica of Saint-Just — flat, grassy, Kai can roam freely. Shade available under trees near the basilica walls. One of the most beautiful picnic backdrops in the area: Romanesque basilica, open fields, Pyrenees in the distance. Best visited by 9:30am — coaches arrive mid-morning in July. Always combine with Saint-Bertrand (2 km up the hill).</p>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Free car park directly beside the basilica on the D26. Flat, spacious, with picnic tables nearby.</p></div>
+  </div>
+
+  <div class="card" data-tags="picnic mountain free over-limit">
+    <div class="card-top">
+      <h3>Col d'Aspin</h3>
+      <div class="badges"><span class="badge b-mtn">Mountain pass</span><span class="badge b-free">Free</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat over-limit">⚠️ 39 min · 27.6 km · OVER LIMIT</span>
+      <span class="stat">⛰ 1,489 m</span>
+      <span class="stat">📍 D929 then D918</span>
+    </div>
+    <p>A legendary Tour de France mountain pass at 1,489m with panoramic views over the Campan and Aure valleys. At this altitude genuinely cool even in July. Drive to the summit, get out, take in the 360° Pyrenees panorama. The approach from Arreau is through open high meadows with marmot sightings likely. A natural scenic stop between Arreau and Lac de Payolle — but at 39 min from Lortet, the round trip to the col and back exceeds the limit.</p>
+    <div class="over-warning"><strong>⚠️ 39 min from Lortet</strong> — 4 min over limit. Only worthwhile as a pass-through stop on the way to Lac de Payolle. <strong>Alternative within limit:</strong> The Col de Beyrède (1,417m, ~25 min northwest) offers similar panoramic views with much less traffic and is within limit.</div>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Large free car park at the col summit. Flat grassy area immediately beside the road. Bar/snack van often present in July. No other facilities.</p></div>
+  </div>
+
+  <div class="card" data-tags="picnic mountain free over-limit">
+    <div class="card-top">
+      <h3>Barbazan lake & thermal park</h3>
+      <div class="badges"><span class="badge b-picnic">Mountain picnic</span><span class="badge b-free">Free</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat over-limit">⚠️ 32 min · 35.7 km · OVER LIMIT</span>
+      <span class="stat">⛰ ~500 m</span>
+      <span class="stat">📍 A64 east</span>
+    </div>
+    <p>A small spa village with a flat lakeside picnic area (no swimming; fishing permitted) and the adjacent 4.2-hectare Parc des Thermes — a shaded flat walk under majestic plane trees with an Art Deco kiosk fountain. Cool at 500m. Fireworks over the lake on 14 July 2026 (evening). Pairs logically with Saint-Bertrand (on the same eastward route).</p>
+    <div class="over-warning"><strong>⚠️ 32 min from Lortet</strong> — just over limit. Via the A64 it's the fastest route east. If combining with Saint-Bertrand (28 min), you're already going this direction — add Barbazan as a stop on the same day. <strong>Alternative within limit:</strong> Neste riverbank at Lortet (0 min) for a flat water-side picnic, or Gourgue d'Asque (28 min) for a cool escape.</div>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Free parking at the lake (Route du Lac) and near the thermal park entrance. Both within 2 min walk of the picnic area.</p></div>
+  </div>
+
+  <div class="card" data-tags="picnic mountain free over-limit">
+    <div class="card-top">
+      <h3>Loures-Barousse lake & Garonne banks</h3>
+      <div class="badges"><span class="badge b-picnic">Valley picnic</span><span class="badge b-free">Free</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat over-limit">⚠️ 31 min · 35.9 km · OVER LIMIT</span>
+      <span class="stat">⛰ ~450 m</span>
+      <span class="stat">📍 A64 then D925</span>
+    </div>
+    <p>A quiet mountain village in the Barousse valley with a designated lakeside picnic area (tables and benches), flat Garonne riverbank paths, and a cycling track towards Cierp-Gaud. The Barousse valley has a deeply restorative quality — thick forests, grazing land, no crowds, old stone villages. Pairs well with Barbazan (5 min north) as a combined east-direction outing.</p>
+    <div class="over-warning"><strong>⚠️ 31 min from Lortet</strong> — just over limit via the A64. Most practical when combined with Barbazan or Saint-Bertrand on the same eastward day. <strong>Alternative within limit:</strong> Neste riverbank at Lortet for a simpler flat riverside picnic within walking distance.</div>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Free parking at the village lake/picnic area, signed from the D925. Flat access from car park to lake and riverbank.</p></div>
+  </div>
+
+  <div class="card" data-tags="picnic mountain free over-limit">
+    <div class="card-top">
+      <h3>Lac de Payolle</h3>
+      <div class="badges"><span class="badge b-picnic">Mountain lake</span><span class="badge b-free">Free walk</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat over-limit">⚠️ 54 min · 31.1 km · OVER LIMIT</span>
+      <span class="stat">⛰ 1,139 m</span>
+      <span class="stat">📍 D929 then D918 via Col d'Aspin</span>
+    </div>
+    <p>A glacial-origin mountain lake at 1,139m nicknamed the "little Canada" for its fir forests and high pastures. At this altitude genuinely cool in July (ideal with a toddler). The lake circuit is 1.8 km, 30–45 minutes, near-zero elevation gain — perfect for Kai. Flat paths beside the water. Shaded picnic areas with timber tables in the trees. Pony rides available lakeside in July. Pedalo hire available.</p>
+    <div class="over-warning"><strong>⚠️ 54 min from Lortet</strong> — significantly over limit due to the mountain road over the Col d'Aspin. Only realistic if you leave by 8:30am. <strong>Alternative within limit:</strong> Lac de Génos-Loudenvielle (40 min — also over limit but closer) offers a similar mountain lake experience. For a reachable lake within limit, the Neste valley itself has calm riverside spots at 0 min.</div>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Large free car parks on both sides of the lake along the D918. Ample space even in July. No charge.</p></div>
+  </div>
+
+  <div class="card" data-tags="picnic mountain free over-limit">
+    <div class="card-top">
+      <h3>Lac de Génos-Loudenvielle</h3>
+      <div class="badges"><span class="badge b-picnic">Mountain lake · Family</span><span class="badge b-free">Free walk</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat over-limit">⚠️ 40 min · 31.6 km · OVER LIMIT</span>
+      <span class="stat">⛰ ~940 m</span>
+      <span class="stat">📍 D929 then D618 · Louron valley</span>
+    </div>
+    <p>A 32-hectare mountain lake at 940m in the Louron valley — one of the best family outdoor spots in the Hautes-Pyrénées. Paved lakeside loop 2.7 km, 35 min, near-flat, with children's play areas and picnic tables on grassy lawns. In July the outdoor water park Ludéo operates next to the lake — paddling pool, slides, Bubble Pirates boat for Kai's age. Pedalo hire available. 13th-century Tour de Génos castle visible on the heights above.</p>
+    <div class="over-warning"><strong>⚠️ 40 min from Lortet</strong> — 5 min over limit. Worth the stretch if combining with Louron valley churches and Jézeau on the same southward day. <strong>Alternative within limit:</strong> No lake within the 35-min limit from Lortet — the Neste riverbank (0 min) is the closest flat water option.</div>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Large free car park at Loudenvielle lakeside (south shore, near Balnéa and Ludéo). Gets busy July weekends — arrive before 10am.</p></div>
+    <div class="extra-note">Ludéo outdoor water park: open July–August. Entry separate from lake walk — check vallee-du-louron.com for current prices.</div>
+  </div>
+
+  <div class="card" data-tags="picnic heritage mountain free over-limit">
+    <div class="card-top">
+      <h3>Vallée du Louron — Romanesque churches</h3>
+      <div class="badges"><span class="badge b-heritage">Heritage</span><span class="badge b-picnic">Drive-through valley</span><span class="badge b-free">Free exterior</span></div>
+    </div>
+    <div class="stat-row">
+      <span class="stat over-limit">⚠️ 35 min · 27.5 km · BORDERLINE</span>
+      <span class="stat">⛰ 800–960 m</span>
+      <span class="stat">📍 D929 then D618 · southeast of Arreau</span>
+    </div>
+    <p>The Louron valley branches south from Arreau into an unspoiled mountain valley with 50+ traditional villages and extraordinary medieval Romanesque churches with intact 15th–16th c. frescoes. Standouts: Mont (Église Saint-Barthélémy — exceptional painted murals), Vielle-Louron, and Cazaux-Fréchet. The valley is beautiful — slate-roofed stone villages, hay barns, pastoral land, high peaks behind. Drive slowly, stop where the village invites it. Free guided church visits organised in season via Pays d'Art et d'Histoire des Vallées d'Aure et du Louron.</p>
+    <div class="over-warning"><strong>⚠️ 35 min to Vielle-Louron</strong> — right at the limit. Deeper into the valley will exceed it. Combine with Génos lake if accepting the over-limit day. <strong>Alternative within limit:</strong> Jézeau (26 min) offers comparable painted Romanesque frescoes much closer.</div>
+    <div class="parking-note"><span class="p-icon">🅿</span><p>Park freely in each village — all are small with roadside space. D618 runs the length of the valley from Arreau. Fine for normal cars.</p></div>
+  </div>
+
+</section>
+
+<!-- ───── COMBOS ───── -->
+<section id="combos">
+  <div class="section-header">
+    <div class="section-icon icon-amber">🗺</div>
+    <h2>Recommended Day Combos</h2>
+    <span class="count">8 combos</span>
+  </div>
+
+  <div class="combo-card">
+    <div class="combo-label">Best heritage day · All within limit</div>
+    <div class="combo-stops">
+      <span class="stop-tag">Saint-Bertrand ruins (28 min)</span>
+      <span class="stop-arrow">→</span>
+      <span class="stop-tag">Medieval village + nave</span>
+      <span class="stop-arrow">→</span>
+      <span class="stop-tag">Valcabrère meadow picnic (29 min)</span>
+    </div>
+    <p>Leave by 9am. Roman ruins first — Kai runs freely on the flat open site while you explore the forum, baths, theatre. Walk up through the medieval gates. Free cathedral nave. Drive 2 km down to Valcabrère for a meadow picnic under shade with the basilica as backdrop. Best single day in the area. Plan it in week 1.</p>
+  </div>
+
+  <div class="combo-card">
+    <div class="combo-label">Aure valley heritage loop · All within limit</div>
+    <div class="combo-stops">
+      <span class="stop-tag">Arreau market hall (21 min)</span>
+      <span class="stop-arrow">→</span>
+      <span class="stop-tag">Jézeau frescoes (26 min)</span>
+      <span class="stop-arrow">→</span>
+      <span class="stop-tag">Ancizan village (28 min)</span>
+    </div>
+    <p>Drive to Arreau (21 min), walk the quayside and Château des Nestes. Drive 5 min uphill to Jézeau — UNESCO church with 16th-century frescoes and Renaissance village lanes. Continue 5 min further south to Ancizan — the 15th-century cloth village with intact medieval fabric and a still-active farm. Three very different heritage stops in a 10 km radius, all within limit. Rich and compact morning. Back by noon.</p>
+  </div>
+
+  <div class="combo-card">
+    <div class="combo-label">Cool gorge + local morning · All within limit</div>
+    <div class="combo-stops">
+      <span class="stop-tag">Gourgue d'Asque (28 min)</span>
+      <span class="stop-arrow">→</span>
+      <span class="stop-tag">Sarrancolin village (14 min)</span>
+    </div>
+    <p>Drive northwest 28 min to the Gourgue d'Asque — cool rainforest gorge regardless of outside heat. Walk the flat first 1.5 km with Kai (pushchair viable). Return and stop at Sarrancolin on the way back (14 min from Lortet) for a browse of the marble town and church. Both well within limit. Perfect for a hot July morning.</p>
+  </div>
+
+  <div class="combo-card">
+    <div class="combo-label">Easy local morning · All within limit</div>
+    <div class="combo-stops">
+      <span class="stop-tag">Sarrancolin village (14 min)</span>
+      <span class="stop-arrow">→</span>
+      <span class="stop-tag">Neste riverbank picnic (0 min)</span>
+    </div>
+    <p>14 minutes from your door. Walk the medieval marble town — Prison Gate, Saint-Ebons church, old stone lanes. Drive back and picnic on the Neste banks at Lortet. Zero pressure, no planning required. Good for the first or last day, or whenever energy is low. Sarrancolin is close enough to revisit on any afternoon.</p>
+  </div>
+
+  <div class="combo-card flagged">
+    <div class="combo-flag">⚠️ Over limit — leave by 8:30am</div>
+    <div class="combo-label">Thursday: Arreau market + Aure valley + Col d'Aspin</div>
+    <div class="combo-stops">
+      <span class="stop-tag">Arreau market (21 min)</span>
+      <span class="stop-arrow">→</span>
+      <span class="stop-tag">Jézeau (26 min)</span>
+      <span class="stop-arrow">→</span>
+      <span class="stop-tag" class="over">Col d'Aspin (39 min)</span>
+    </div>
+    <p>Thursday market at Arreau from 9am. Drive 5 min up to Jézeau frescoes after. Then push south through Ancizan and up to the Col d'Aspin summit (39 min from Lortet) for the 1,489m panorama. Return via the same D929 route. Long for a morning with a toddler — skip the col if Kai is flagging.</p>
+    <div class="combo-alt">✦ Within-limit alternative: skip the Col d'Aspin and end at Ancizan. Same road south, back by noon, all within 28 min.</div>
+  </div>
+
+  <div class="combo-card flagged">
+    <div class="combo-flag">⚠️ Over limit — leave by 8:30am</div>
+    <div class="combo-label">Saturday: Bagnères market + Campan valley</div>
+    <div class="combo-stops">
+      <span class="stop-tag" class="over">Les Halles · Bagnères (37 min)</span>
+      <span class="stop-arrow">→</span>
+      <span class="stop-tag" class="over">Campan village (44 min)</span>
+    </div>
+    <p>Leave by 8:45am for the Saturday market at Les Halles in Bagnères (37 min) — cheese, charcuterie, fish, oyster bar, local singing group. Stock up on provisions. Drive south 7 min to Campan village: the 1571 market hall, Saint-Vincent church, and flat Adour riverside walk for Kai. Both destinations over limit — accept it or swap.</p>
+    <div class="combo-alt">✦ Within-limit alternative: Arreau Thursday market (21 min) with similar local producers atmosphere, then Jézeau and Ancizan. All within limit.</div>
+  </div>
+
+  <div class="combo-card flagged">
+    <div class="combo-flag">⚠️ Over limit — full stretch day, leave by 8:30am</div>
+    <div class="combo-label">Louron valley day</div>
+    <div class="combo-stops">
+      <span class="stop-tag">Arreau (21 min)</span>
+      <span class="stop-arrow">→</span>
+      <span class="stop-tag" class="over">Louron churches (35 min)</span>
+      <span class="stop-arrow">→</span>
+      <span class="stop-tag" class="over">Génos lake (40 min)</span>
+    </div>
+    <p>Drive south through Arreau and branch east into the Louron valley — stop at painted Romanesque churches in Mont and Vielle-Louron. Continue to Génos-Loudenvielle lake (40 min) for a flat lakeside picnic and Kai at Ludéo outdoor water park in July. One continuous southward drive — everything on the same D618 road. Return via Arreau.</p>
+    <div class="combo-alt">✦ Within-limit alternative: Replace Génos lake with Jézeau (26 min) for the Romanesque frescoes fix, and skip the lake entirely. All within limit and back comfortably by noon.</div>
+  </div>
+
+  <div class="combo-card flagged">
+    <div class="combo-flag">⚠️ Over limit — only on a very early start</div>
+    <div class="combo-label">East valley day: Barbazan + Saint-Bertrand</div>
+    <div class="combo-stops">
+      <span class="stop-tag">Saint-Bertrand (28 min)</span>
+      <span class="stop-arrow">→</span>
+      <span class="stop-tag" class="over">Barbazan lake (32 min)</span>
+      <span class="stop-arrow">→</span>
+      <span class="stop-tag" class="over">Loures-Barousse (31 min)</span>
+    </div>
+    <p>Drive east to Saint-Bertrand (28 min, within limit) for the Roman ruins and village. Continue 15 min southeast to Barbazan for a shaded lakeside picnic. Optionally push further to Loures-Barousse (31 min) for the pastoral Barousse valley. Saint-Bertrand is within limit; Barbazan and Barousse are just over. Via the A64 the drives are fast but the total distance adds up.</p>
+    <div class="combo-alt">✦ Within-limit alternative: Saint-Bertrand (28 min) + Valcabrère picnic (29 min) — the classic best-day combo, all within limit.</div>
+  </div>
+
+</section>
+
+<!-- ───── 11-DAY PLAN ───── -->
+<section id="planner">
+  <div class="section-header">
+    <div class="section-icon icon-amber">📅</div>
+    <h2>11-Day Plan · 13–24 July 2026</h2>
+  </div>
+
+  <div class="tip-box info" style="margin-bottom:12px;">
+    <h3>Daily rhythm</h3>
+    <p>Leave by 9am (8:30am for over-limit days). Home by 12:30pm. Nap time = hottest part of the day. Afternoons: Neste riverbank, Sarrancolin wander, or rest. <strong>⚠️ = over 35-min limit</strong> — noted with alternatives.</p>
+  </div>
+
+  <div class="week-block">
+    <div class="week-label">Week 1 · 13–19 July 2026</div>
+    <div class="week-days">
+
+      <div class="day-row">
+        <div class="day-meta"><span class="day-num">Sun 13</span>Arrive</div>
+        <div class="day-content">Settle in · Neste riverbank + Sarrancolin wander
+          <span class="day-sub">Walk to the Neste (5 min). Quick look at Sarrancolin (14 min) if energy allows. Afternoon rest.</span>
         </div>
       </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~20 min south</span>
-        <span class="stat"><span class="stat-icon">⛰</span> 658–1,756 m (avg. 730 m)</span>
-        <span class="stat"><span class="stat-icon">📍</span> Neste valley junction</span>
-      </div>
-      <p>The finest mountain village in the area — former capital of the "4 Valleys" at the confluence of the Neste d'Aure and Neste du Louron rivers. The entire historic centre is a protected architectural zone: medieval alleys, 16th–18th century half-timbered slate-roofed houses, the Maison des Lys with its fleur-de-lys colombage facade, the Château de Ségure (16th c. square tower), the Château des Nestes (now the tourist office, with a small Cagots museum inside), the 16th century market hall with clocktower (weekly Thursday market — local producers), and two Romanesque churches: Notre-Dame (with a 16th-c. Pietà sculpture) and the Chapel of Saint-Exupère with Roman porch carvings. Beautiful riverside setting on the Neste du Louron.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Free car park at the entrance to the village (Place de la Mairie area). Village centre is flat and fully walkable from there — stroller-friendly quayside path along the Neste.</p>
-      </div>
-      <div class="extra-note">Thursday market: arrive by 9:30am for the best of the local produce stalls. Free to browse throughout.</div>
-    </div>
 
-    <div class="card">
-      <div class="card-top">
-        <h3>Sarrancolin</h3>
-        <div class="badges">
-          <span class="badge b-mtn">Mountain</span>
-          <span class="badge b-free">Free exterior</span>
+      <div class="day-row">
+        <div class="day-meta"><span class="day-num">Mon 14</span>21 min</div>
+        <div class="day-content">Arreau village — quayside, Maison des Lys, market hall, churches
+          <span class="day-sub">Bastille Day — check for local fêtes. Evening fireworks at Barbazan lake if you want to make the drive (32 min ⚠️).</span>
         </div>
       </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~10 min north</span>
-        <span class="stat"><span class="stat-icon">⛰</span> 600–1,890 m (avg. 630 m)</span>
-        <span class="stat"><span class="stat-icon">📍</span> Aure Valley, Neste banks</span>
-      </div>
-      <p>A fortified medieval village on the Neste d'Aure, 10 minutes from your door. Famous worldwide for its pink-veined marble, quarried here since the 17th century — the same marble is in the Opéra Garnier in Paris, the Petit Trianon at Versailles, and the entrance lobby of the Empire State Building in New York. The Prison Gate (only remaining fortification, 16th c.) is the southern entrance to the old town. The Romanesque church of Saint-Ebons (11th–12th c.) has a distinctive square bell tower and exceptional altarpieces inside. Easy 15-minute walk around the old town on flat ground. Very close — good for a short morning or late afternoon wander.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Free parking in the village centre along the main D929 road. Several spaces near the church and Place de la Mairie. Flat access into the old town.</p>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="card-top">
-        <h3>Bagnères-de-Bigorre</h3>
-        <div class="badges">
-          <span class="badge b-mtn">Mountain spa town</span>
-          <span class="badge b-free">Free to walk</span>
+      <div class="day-row">
+        <div class="day-meta"><span class="day-num">Tue 15</span>28 min</div>
+        <div class="day-content">Saint-Bertrand-de-Comminges — Roman ruins + village + Valcabrère meadow picnic
+          <span class="day-sub">Leave by 9am. Ruins first (Kai runs freely), medieval village, free nave. Meadow picnic at Valcabrère (29 min). Best single day of the stay.</span>
         </div>
       </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~20 min northwest</span>
-        <span class="stat"><span class="stat-icon">⛰</span> ~550 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Adour valley, foot of Tourmalet</span>
-      </div>
-      <p>A proper Pyrenean spa town with genuine architectural character — neo-classical Grands Thermes, a Belle Époque market hall (Les Halles, Saturday market — best one in the area: fish, cheese, charcuterie, oyster bar, local singing group Les Chanteurs Montagnards), a Baltard-style covered market, the Saint-Vincent church (fine interior, listed monument), the Cloître Saint-Jean, and a historic town centre with a marble museum. The most substantial town in range — useful for provisions, pharmacy, and a proper browse on a slow morning. July temperatures typically 13–25°C — noticeably moderate.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Multiple free and paid car parks in the town centre. Parking Salies (near Les Halles market) is convenient for the Saturday market. Flat centre — good with a pushchair.</p>
-      </div>
-      <div class="extra-note">Saturday market at Les Halles: arrive by 9am. Best fresh produce in the area. Local singing group often performs around the market hall.</div>
-    </div>
 
-    <div class="card">
-      <div class="card-top">
-        <h3>Campan village</h3>
-        <div class="badges">
-          <span class="badge b-mtn">Mountain</span>
-          <span class="badge b-free">Free</span>
+      <div class="day-row">
+        <div class="day-meta"><span class="day-num">Wed 16</span>26 min</div>
+        <div class="day-content">Gourgue d'Asque — cool gorge walk (hot-day escape)
+          <span class="day-sub">28 min northwest. Flat first 1.5 km with Kai. Natural cool inside the gorge. €4 parking. Back before noon.</span>
         </div>
       </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~25 min northwest</span>
-        <span class="stat"><span class="stat-icon">⛰</span> 629–2,747 m (avg. 656 m)</span>
-        <span class="stat"><span class="stat-icon">📍</span> Campan valley, Adour river</span>
-      </div>
-      <p>A beautifully preserved mountain village in the pastoral Campan valley, at the confluence of the Adour and Adour de Payolle rivers. The star feature is the <em>Halle de Campan</em> — a covered market hall built in 1571, the oldest in the Hautes-Pyrénées, with original cylindrical stone pillars. Also the Renaissance-portal church of Saint-Vincent (listed monument), multiple fountains, lavoirs (wash houses), old stone courtyards, and Pyrenean farmhouses typical of the Bigorre style. The valley retains strong pastoral traditions — you may see flock movements in July. Free heritage walking circuit through the village (30 min, well signposted, includes a flora quiz trail). Flat riverbank path along the Adour. Combines well with a drive up to Lac de Payolle (15 min further south).</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Free parking at the village square (Place de la Halle) beside the market hall. Flat and central. Do not continue south without parking here first — the valley road narrows significantly.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- ───── HERITAGE ───── -->
-  <section id="heritage">
-    <div class="section-header">
-      <div class="section-icon icon-rust">🏛</div>
-      <h2>Heritage — Villages & Architecture</h2>
-      <span class="count">6 sites</span>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <h3>Saint-Bertrand-de-Comminges</h3>
-        <div class="badges">
-          <span class="badge b-star">UNESCO</span>
-          <span class="badge b-part">Partial charge</span>
+      <div class="day-row">
+        <div class="day-meta"><span class="day-num">Thu 17</span>21–28 min</div>
+        <div class="day-content">Arreau Thursday market · Jézeau frescoes · Ancizan village
+          <span class="day-sub">Market from 9am. Drive 5 min up to Jézeau UNESCO church. Continue to Ancizan medieval village. All within limit. Back by noon.</span>
         </div>
       </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~30 min east</span>
-        <span class="stat"><span class="stat-icon">⛰</span> ~480 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Haute-Garonne · Comminges</span>
-      </div>
-      <p>The unmissable heritage site of the entire region. Roman ruins of Lugdunum Convenarum (forum, baths, theatre — all open-air and flat: Kai can run freely while you explore). Medieval walled village perched above with half-timbered lanes, noble 16th–18th c. residences, and the Cathedral of Sainte-Marie — built on a rocky promontoire between the 12th and 16th centuries, nicknamed the "Mont Saint-Michel of the Pyrenees." Plan two visits: first the Roman ruins and village exterior, second the cathedral interior. Worth every minute of the drive.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Two options: <strong>(1) Lower car park</strong> — large free meadow car park at the base of the village (GPS: Route de Valcabrère). Flat walk to the Roman ruins; 10-min uphill path to the village gates. <strong>(2) Upper car park</strong> — small car park directly at the village entrance, reached via narrow one-way road from the south. Gets busy by 10am in July. Lower car park is better with a pushchair.</p>
-      </div>
-      <div class="extra-note">Cathedral nave: free. Cloister, choir & museum: small charge (~€5). Roman site below: free. Shuttle bus runs 12 July–24 Aug (Lipy line 4) from Loures-Barbazan.</div>
-    </div>
 
-    <div class="card">
-      <div class="card-top">
-        <h3>Basilica of Saint-Just, Valcabrère</h3>
-        <div class="badges">
-          <span class="badge b-star">UNESCO</span>
-          <span class="badge b-free">Free exterior</span>
+      <div class="day-row flagged-day">
+        <div class="day-meta"><span class="day-num">Fri 18</span>⚠️ 37 min</div>
+        <div class="day-content">Bagnères-de-Bigorre town walk + market hall browse
+          <span class="day-flag">⚠️ 37 min — 2 min over limit. Leave by 8:45am.</span>
+          <span class="day-alt">✦ Alternative: Arreau (21 min) for a second village day — quayside, castle museum, slower pace.</span>
         </div>
       </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~30 min east</span>
-        <span class="stat"><span class="stat-icon">⛰</span> ~470 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> 1 km below Saint-Bertrand</span>
-      </div>
-      <p>An 11th–12th century Romanesque basilica standing alone in open meadows at the foot of Saint-Bertrand hill. Built partly from salvaged Roman stone from the ruins above. Extraordinary setting: the basilica, flat meadows, grazing land, and the Pyrenees behind — one of the finest picnic spots in the entire area. On the Santiago de Compostela UNESCO route. Always combine with Saint-Bertrand — they are 1 km apart.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Free car park directly beside the basilica on the D26 road. Flat, grassy, spacious. Picnic tables and shade under trees near the basilica walls.</p>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="card-top">
-        <h3>Saint-Béat</h3>
-        <div class="badges">
-          <span class="badge b-mtn">Mountain</span>
-          <span class="badge b-free">Free exterior</span>
+      <div class="day-row flagged-day">
+        <div class="day-meta"><span class="day-num">Sat 19</span>⚠️ 37–44 min</div>
+        <div class="day-content">Bagnères Saturday market (Les Halles) · Campan valley + 1571 market hall
+          <span class="day-flag">⚠️ Bagnères 37 min, Campan 44 min — both over limit. Leave by 8:45am. Best Saturday option in the area.</span>
+          <span class="day-alt">✦ Alternative: Arreau market (Thu) is the within-limit equivalent — same local produce atmosphere at 21 min.</span>
         </div>
       </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~30 min south</span>
-        <span class="stat"><span class="stat-icon">⛰</span> ~500 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Narrow Garonne valley · "Key of France"</span>
-      </div>
-      <p>A dramatic mountain village set in a tight Garonne valley at the foot of the Pic du Gar, historically the "Key of France" — the fortified gate controlling the mountain pass to Spain. 12th-century feudal castle ruins with valley views, a Romanesque church listed as a historic monument with fine sculpted capitals, and famous white marble quarries that supplied Versailles and — by local legend — the Trajan Column in Rome. Noticeably cooler than the plains in July. Pairs naturally with Barbazan (10 min north) for a full mountain day.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Free parking at the village entrance on the D44 (Garonne riverside). Village is compact and walkable from there in 10 minutes. Narrow streets in the upper village — don't attempt to drive through.</p>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="card-top">
-        <h3>Grottes Fortifiées de Lortet</h3>
-        <div class="badges">
-          <span class="badge b-free">Free exterior</span>
-          <span class="badge b-mtn">On your doorstep</span>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-label">Week 2 · 20–24 July 2026</div>
+    <div class="week-days">
+
+      <div class="day-row">
+        <div class="day-meta"><span class="day-num">Sun 20</span>28–29 min</div>
+        <div class="day-content">Saint-Bertrand second visit — cathedral interior + cloister · Valcabrère picnic
+          <span class="day-sub">Go deeper this time — pay for the cloister and choir. Meadow picnic at Valcabrère after. A noticeably different experience from the first visit.</span>
         </div>
       </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> 2 min · walking distance</span>
-        <span class="stat"><span class="stat-icon">⛰</span> 600–725 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Above the D929, Lortet</span>
-      </div>
-      <p>Lortet's own hidden heritage. Fortified cave complex from the 12th century, built between 600 and 725m altitude in a natural rock breach — a complete castle ensemble adapted to a vertical cliff face, with a 17-step stone stair tower. A second cave, discovered in 1873, contained Palaeolithic engravings and bone carvings now in the Musée de l'Homme in Paris. The setting is remarkable even just from the road. Note: rock face is currently under a municipal access restriction since 2004 following rockfall — check locally before attempting to approach closely.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Park at the Mairie (village hall) in Lortet — 2 min walk. Visible from the D929 road. No formal parking at the site itself.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <h3>Jézeau</h3>
-        <div class="badges">
-          <span class="badge b-star">UNESCO</span>
-          <span class="badge b-free">Free exterior</span>
+
+      <div class="day-row flagged-day">
+        <div class="day-meta"><span class="day-num">Mon 21</span>⚠️ 35–40 min</div>
+        <div class="day-content">Louron valley churches · Génos-Loudenvielle lake + Ludéo water park (Kai)
+          <span class="day-flag">⚠️ Louron churches 35 min (borderline), Génos lake 40 min — over limit. Leave by 8:30am.</span>
+          <span class="day-alt">✦ Alternative within limit: Jézeau (26 min) for the fresco fix. Skip the lake and stay in the Aure valley.</span>
         </div>
       </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~25 min south</span>
-        <span class="stat"><span class="stat-icon">⛰</span> ~750 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Just above Arreau · D19</span>
-      </div>
-      <p>A tiny village perched just above Arreau, easily missed but exceptional. The 12th-century church of Notre-Dame Saint-Laurent is a classified UNESCO Historic Monument and one of the 4 emblematic heritage sites of the Grand Site d'Occitanie — its interior contains extraordinary 16th-century painted murals covering the walls and vaulted ceiling. The village itself is a beautifully preserved example of mountain rural architecture: houses with open galleries, Renaissance window braces and lintels, old wood barn doors and lintel carvings still intact. Local artisans produce Saffron of the Pyrenees here. The village also maintains a working shoeing loom and lavoirs (wash houses). Easy add-on to any Arreau day — 5 minutes up the hillside from the village.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Small free car park at the village entrance off the D19. 2-minute walk to the church and village centre. Very quiet — no crowds. The church may be locked outside guided visit hours; check with the Arreau tourist office or at patrimoine-aure-louron.fr.</p>
-      </div>
-      <div class="extra-note">Always combine with Arreau (5 min below). If the church is open, don't miss the frescoes — they're remarkable. Free entry when open.</div>
-    </div>
 
-    <div class="card">
-      <div class="card-top">
-        <h3>Ancizan</h3>
-        <div class="badges">
-          <span class="badge b-mtn">Mountain village</span>
-          <span class="badge b-free">Free</span>
+      <div class="day-row flagged-day">
+        <div class="day-meta"><span class="day-num">Tue 22</span>⚠️ 31–32 min</div>
+        <div class="day-content">Barbazan lake picnic · Loures-Barousse valley
+          <span class="day-flag">⚠️ Barbazan 32 min, Loures-Barousse 31 min — both just over limit via A64.</span>
+          <span class="day-alt">✦ Alternative within limit: Neste riverbank at Lortet (0 min) for a simpler flat riverside day. Or Gourgue d'Asque (28 min) for a second cool gorge visit.</span>
         </div>
       </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~25 min south</span>
-        <span class="stat"><span class="stat-icon">⛰</span> ~800 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Upper Aure valley · 5 min past Arreau</span>
-      </div>
-      <p>A 15th-century cloth-weaving village in the upper Aure valley, 5 minutes past Arreau at 800m altitude. Ancizan preserved its medieval trading heritage almost intact: original window frames, aged wood barn doors and lintels, old slate roofs, and the remains of the weavers' hall in the current town hall building. A still-active village farm, summer cattle movements to high pastures in July (you may encounter shepherd activity on the road), and a pastoral landscape stretching to 2,843m above. Two small heritage sites: a Cultural Centre and the Museum of the Aure Valley. Unhurried, completely authentic, no tourist infrastructure. A short wander — 20–30 minutes on foot — then continue or turn back.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Free roadside parking in the village centre on the D19. Very small village — no formal car park, but easy to find a space. Always combine with Arreau (10 min back north) and Jézeau (on the same road) for a full Aure valley morning.</p>
-      </div>
-    </div>
 
-  </section>
-
-  <!-- ───── OUTDOORS & PICNICS ───── -->
-  <section id="outdoors">
-    <div class="section-header">
-      <div class="section-icon icon-meadow">🌿</div>
-      <h2>Outdoors, Meadows & Picnics</h2>
-      <span class="count">10 spots</span>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <h3>Lac de Payolle</h3>
-        <div class="badges">
-          <span class="badge b-star">Best outdoor day</span>
-          <span class="badge b-picnic">Picnic · Flat walk</span>
+      <div class="day-row">
+        <div class="day-meta"><span class="day-num">Wed 23</span>21–28 min</div>
+        <div class="day-content">Repeat favourite — Arreau · Jézeau · Ancizan or Gourgue d'Asque
+          <span class="day-sub">Both loops are well within limit. Choose based on mood: heritage loop (Aure valley) or cool gorge. Back comfortably by noon.</span>
         </div>
       </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~25 min west</span>
-        <span class="stat"><span class="stat-icon">⛰</span> 1,139 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Foot of Col d'Aspin · Campan valley</span>
-      </div>
-      <p>A glacial-origin mountain lake at 1,139m in the heart of the Pyrenees National Park — nicknamed the "little Canada" for its fir forests and high pastures. At this altitude it will be genuinely cool in July (ideal with a toddler). The lake circuit is 1.8 km, takes 30–45 minutes, near-zero elevation gain — perfect for Kai. The entire loop is flat and on clear paths beside the water. Shaded picnic areas with timber tables in the trees. Pony rides available lakeside in July. Pedalo hire available (no swimming). Clear Pic du Midi views from the water's edge.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Free car parks on both sides of the lake along the D918 road. Very large — ample space even in July. Additional roadside spaces for busy summer days. No charge.</p>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="card-top">
-        <h3>Valcabrère meadows</h3>
-        <div class="badges">
-          <span class="badge b-picnic">Best picnic spot</span>
-          <span class="badge b-free">Free</span>
+      <div class="day-row">
+        <div class="day-meta"><span class="day-num">Thu 24</span>Depart</div>
+        <div class="day-content">Last morning · Neste riverbank · Sarrancolin wander
+          <span class="day-sub">No pressure. Walk to the river, say goodbye to the mountains. Sarrancolin (14 min) if time allows before leaving.</span>
         </div>
       </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~30 min east</span>
-        <span class="stat"><span class="stat-icon">⛰</span> ~470 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Below Saint-Bertrand · D26</span>
-      </div>
-      <p>Open pastoral meadows surrounding the Basilica of Saint-Just — flat, grassy, and Kai can roam freely. Shade available under trees near the basilica walls. One of the most beautiful picnic backdrops in the area: Romanesque basilica, open fields, distant Pyrenees. Always combine with Saint-Bertrand (2 km up the hill) for a full morning. Best visited by 9:30am — coaches arrive mid-morning in July.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Free car park directly beside the basilica on the D26. Flat, spacious, with picnic tables nearby. 5-min walk from car to best picnic meadow area.</p>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="card-top">
-        <h3>Barbazan lake & thermal park</h3>
-        <div class="badges">
-          <span class="badge b-picnic">Mountain picnic</span>
-          <span class="badge b-free">Free</span>
-        </div>
-      </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~25 min southeast</span>
-        <span class="stat"><span class="stat-icon">⛰</span> ~500 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Garonne valley · 10 min north of Saint-Béat</span>
-      </div>
-      <p>A small spa village with a flat lakeside picnic area (no swimming; fishing permitted) and the adjacent 4.2-hectare Parc des Thermes — a shaded flat walk under majestic plane trees with an Art Deco kiosk fountain. Genuinely cool at 500m. Fireworks over the lake on 14 July. Pairs perfectly with Saint-Béat (10 min south) — arrive at Barbazan first for a morning picnic, then drive up to Saint-Béat.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Free parking at the lake (Route du Lac). Flat roadside parking also available near the thermal park entrance. Both within 2 min walk of the picnic area and lake.</p>
-      </div>
     </div>
+  </div>
+</section>
 
-    <div class="card">
-      <div class="card-top">
-        <h3>Campan valley meadows & Adour riverbank</h3>
-        <div class="badges">
-          <span class="badge b-picnic">Pastoral meadow</span>
-          <span class="badge b-free">Free</span>
-        </div>
-      </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~25 min northwest</span>
-        <span class="stat"><span class="stat-icon">⛰</span> 629–850 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Campan Bourg · Adour river</span>
-      </div>
-      <p>The Campan valley itself is one of the most pastoral, beautiful valleys in the Hautes-Pyrénées — wide open, with the Adour river running through, high summer pastures above, and the Pic du Midi watching over. The riverbank path from the village bourg is flat and shaded, with tables and benches at strategic points. A renovated shepherd's hamlet (Courtaou des Esclozes) 1h15 walk up the valley from the village also has tables and benches — only for those willing to walk with a carrier. Best to stay near the village for a toddler.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Free parking at Place de la Halle in Campan village. Flat riverside path begins immediately from the parking area heading south along the Adour.</p>
-      </div>
-    </div>
+<!-- ───── TIPS ───── -->
+<section id="tips">
+  <div class="section-header">
+    <div class="section-icon icon-pine">💡</div>
+    <h2>Practical Tips</h2>
+  </div>
 
-    <div class="card">
-      <div class="card-top">
-        <h3>Loures-Barousse lake & Garonne banks</h3>
-        <div class="badges">
-          <span class="badge b-picnic">Valley picnic</span>
-          <span class="badge b-free">Free</span>
-        </div>
-      </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~30 min east</span>
-        <span class="stat"><span class="stat-icon">⛰</span> ~450 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Barousse valley · Garonne riverside</span>
-      </div>
-      <p>A quiet mountain village in the Barousse valley with a designated lakeside picnic area (tables and benches), flat Garonne riverbank paths, and a cycling track towards Cierp-Gaud. The Barousse valley has a deeply restorative quality — thick forests, grazing land, no crowds, old stone villages. Pairs well with a drive further south to the Cazarilh plateau meadow (15 min further, big open views).</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Free parking at the village lake/picnic area, signed from the D925. Flat access to the lake and riverbank from the car park.</p>
-      </div>
-    </div>
+  <div class="tip-box heat">
+    <h3>July 2026 heat — at altitude</h3>
+    <ul>
+      <li>Lortet at ~550m averages 24–27°C in July — comfortable without AC. Nights drop to ~15°C.</li>
+      <li>Leave for all outings by 9am (8:30am for over-limit days). Home by 12:30pm. Nap = hottest hour.</li>
+      <li>Gourgue d'Asque gorge is the best hot-day escape — naturally cool regardless of outside temperature, 28 min away.</li>
+      <li>Over-limit mountain spots (Col d'Aspin 1,489m, Lac de Payolle 1,139m, Génos lake 940m) are several degrees cooler — worth the drive on the hottest days if you leave early enough.</li>
+      <li>Afternoons: Neste riverbank at Lortet (walking distance) is the best default — flat, cool water, shaded spots.</li>
+    </ul>
+  </div>
 
-    <div class="card">
-      <div class="card-top">
-        <h3>Col d'Aspin</h3>
-        <div class="badges">
-          <span class="badge b-mtn">Mountain pass</span>
-          <span class="badge b-free">Free</span>
-        </div>
-      </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~25 min southwest</span>
-        <span class="stat"><span class="stat-icon">⛰</span> 1,489 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Between Arreau & Campan valleys</span>
-      </div>
-      <p>A legendary Tour de France mountain pass at 1,489m with panoramic views over the Campan and Aure valleys. At this altitude it is genuinely cold even in July — refreshing on a hot day. Not a destination in itself but an exceptional scenic stop: drive to the summit, get out, take in the 360° Pyrenees panorama, and continue. The approach from Arreau is south-to-north through open high meadows with marmot sightings likely. A car-stop lunch spot on the way to or from Lac de Payolle makes this a natural combo.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Large free car park at the col summit. Flat grassy area immediately beside the road. Bar/snack van often present in July. No facilities otherwise.</p>
-      </div>
-    </div>
+  <div class="tip-box kai">
+    <h3>With Kai (20 months)</h3>
+    <ul>
+      <li><strong>Best free-run spaces:</strong> Roman ruins at Saint-Bertrand (flat open field), Valcabrère meadow, Neste riverbank at Lortet, Gourgue d'Asque flat first 1.2 km.</li>
+      <li><strong>Stroller-friendly:</strong> Arreau quayside, Sarrancolin flat lanes, Bagnères-de-Bigorre centre, Barbazan lake flat path.</li>
+      <li><strong>Carrier recommended:</strong> Upper village at Saint-Bertrand (uneven cobbles + slope), Jézeau lanes (short but hilly), Ancizan upper streets.</li>
+      <li><strong>Water activities:</strong> Génos lake has Ludéo outdoor water park July–August (40 min ⚠️). Neste riverbank for stone throwing and paddling — supervise closely near fast-flowing sections.</li>
+      <li><strong>Pony rides:</strong> Available at Lac de Payolle in July (54 min ⚠️) — Kai will love watching even if too young to ride.</li>
+    </ul>
+  </div>
 
-    <div class="card">
-      <div class="card-top">
-        <h3>Gourgue d'Asque — "Petite Amazonie"</h3>
-        <div class="badges">
-          <span class="badge b-star">Hidden gem</span>
-          <span class="badge b-free">Free trail</span>
-        </div>
-      </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~20 min northwest</span>
-        <span class="stat"><span class="stat-icon">⛰</span> ~586 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Asque · Baronnies · D26</span>
-      </div>
-      <p>The biggest surprise in the area — a narrow limestone gorge carved by the Arros river, nicknamed the "Petite Amazonie des Pyrénées" for its extraordinary microclimate. Near-100% humidity has produced a moss-draped rainforest: ancient boxwood trees coated in lichen, ferns covering every rock, river pools, and a light that barely penetrates the canopy. Despite 34°C outside, inside the gorge you feel none of it — it's cool, green, and otherworldly. Signed interpretive trail with botanical panels. The first 1.2 km from the car park is accessible for pushchairs along a wide flat path beside the stream. Perfect hot-day escape. Kai will be mesmerised by the moss and the water.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Two small car parks at the trailhead in Couret d'Asque (Asque village, off the D26). Paid parking: €4 for 8 hours via ticket machine. Picnic tables in the car park. Follow signs from the D26 junction at Couret hamlet — not well signposted from the main road, watch carefully.</p>
-      </div>
-      <div class="extra-note">Even better on an overcast or light-rain day — the gorge becomes even more atmospheric. Bring a light layer. Not the full 9 km loop — stick to the first 1.5–2 km with Kai.</div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <h3>Lac de Génos-Loudenvielle</h3>
-        <div class="badges">
-          <span class="badge b-picnic">Mountain lake · Family</span>
-          <span class="badge b-free">Free walk</span>
-        </div>
-      </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~35 min south</span>
-        <span class="stat"><span class="stat-icon">⛰</span> ~940 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Loudenvielle · Vallée du Louron</span>
-      </div>
-      <p>A 32-hectare mountain lake at 940m in the heart of the Louron valley — one of the best family outdoor spots in the Hautes-Pyrénées. The paved lakeside loop is 2.7 km, takes 35 minutes, near-flat throughout, with children's play areas, picnic tables on grassy lawns, and stunning mountain reflections on the water. In July an outdoor water park (Ludéo) operates next to the lake with paddling pool, slides, and a Bubble Pirates boat for ages 3–8 — Kai is exactly the right age. Pedalo hire available. Castle tower (Tour de Génos, 13th c.) visible on the heights above — scenic backdrop. Slightly over 30 min but worth it on a clear day.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Large free car park at Loudenvielle lakeside (south shore, near Balnéa and Ludéo). Signed from the D25 through the village. Flat access from parking to lake and play areas. Gets busy July weekends — arrive before 10am.</p>
-      </div>
-      <div class="extra-note">Ludéo outdoor water park: open July–August. Entry separate from lake walk — check current prices at vallee-du-louron.com. Combine with a Jézeau stop on the way (Arreau direction, same road south).</div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <h3>Vallée du Louron — Romanesque churches</h3>
-        <div class="badges">
-          <span class="badge b-free">Free exterior</span>
-          <span class="badge b-mtn">~800–960 m</span>
-        </div>
-      </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> ~30–35 min south</span>
-        <span class="stat"><span class="stat-icon">⛰</span> 800–960 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Louron valley · southeast of Arreau</span>
-      </div>
-      <p>The Louron valley branches south from Arreau into an unspoiled mountain valley with 50+ traditional villages and a string of extraordinary medieval Romanesque churches with intact 15th–16th century frescoes. The standouts: <strong>Mont</strong> (Église Saint-Barthélémy — exceptional painted murals), <strong>Vielle-Louron</strong> (frescoes and Romanesque simplicity), and <strong>Cazaux-Fréchet</strong>. The valley itself is beautiful — slate-roofed stone villages, hay barns, pastoral land, high peaks behind. Drive slowly through, stop where the village invites it. Free guided visits of the churches are organised in season (check with the Pays d'Art et d'Histoire office at Arreau). The whole valley has a quietly special atmosphere — uncrowded, authentic, deeply Pyrenean.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Park freely in each village — all are small with roadside space. The D25 runs the length of the valley from Arreau. No formal car parks needed. Turn into villages on impulse — the roads are fine for normal cars.</p>
-      </div>
-      <div class="extra-note">Guided church visits: contact Pays d'Art et d'Histoire des Vallées d'Aure et du Louron (patrimoine-aure-louron.fr) or ask at the Arreau tourist office. Some churches are locked outside guided visit hours — check before making a specific detour.</div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <h3>Neste riverbanks, Lortet</h3>
-        <div class="badges">
-          <span class="badge b-free">On your doorstep</span>
-          <span class="badge b-picnic">5 min walk</span>
-        </div>
-      </div>
-      <div class="stat-row">
-        <span class="stat"><span class="stat-icon">🚗</span> Walking distance</span>
-        <span class="stat"><span class="stat-icon">⛰</span> ~620 m</span>
-        <span class="stat"><span class="stat-icon">📍</span> Lortet · D929 riverside</span>
-      </div>
-      <p>The Neste d'Aure river runs directly alongside the village. Flat grassy banks, mountain backdrop, the sound of the river. A no-effort option for Kai to run around and throw stones in the water. No formal picnic infrastructure but perfectly viable — bring a blanket. The no-kill fishing stretch between Lortet and Izaux also makes this one of the most scenic river sections in the valley. Good for early morning or late afternoon when you don't want to drive.</p>
-      <div class="parking-note">
-        <span class="p-icon">🅿</span>
-        <p>Park at the Mairie in Lortet (2 impasse de l'Église — your address) and walk 3 minutes to the river. No specific car park needed.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───── COMBOS ───── -->
-  <section id="combos">
-    <div class="section-header">
-      <div class="section-icon icon-amber">🗺</div>
-      <h2>Recommended Day Combos</h2>
-      <span class="count">8 combos</span>
-    </div>
-
-    <div class="combo-card">
-      <div class="combo-label">Best mountain pass day</div>
-      <div class="combo-stops">
-        <span class="stop-tag">Arreau village</span>
-        <span class="stop-arrow">→</span>
-        <span class="stop-tag">Col d'Aspin summit</span>
-        <span class="stop-arrow">→</span>
-        <span class="stop-tag">Lac de Payolle picnic</span>
-      </div>
-      <p>Drive south 20 min to Arreau — wander the market hall, Neste quayside, Maison des Lys, church. Drive up the Col d'Aspin (20 min) for the 1,489m panorama. Continue 5 min down to Lac de Payolle for a shaded lakeside picnic and the flat 45-min lake circuit with Kai. Three dramatically different mountain settings in one morning, all back by 12:30.</p>
-    </div>
-
-    <div class="combo-card">
-      <div class="combo-label">Best heritage day</div>
-      <div class="combo-stops">
-        <span class="stop-tag">Saint-Bertrand ruins</span>
-        <span class="stop-arrow">→</span>
-        <span class="stop-tag">Medieval village + nave</span>
-        <span class="stop-arrow">→</span>
-        <span class="stop-tag">Valcabrère meadow picnic</span>
-      </div>
-      <p>Leave by 9am. Start at the flat Roman ruins — Kai runs freely while you explore the forum, baths, theatre. Walk up through the medieval gates. Free cathedral nave. Drive 2 km down to Valcabrère for a meadow picnic beside the Romanesque basilica. Best single day in the area. Plan it in week 1.</p>
-    </div>
-
-    <div class="combo-card">
-      <div class="combo-label">Aure valley heritage loop</div>
-      <div class="combo-stops">
-        <span class="stop-tag">Arreau market hall</span>
-        <span class="stop-arrow">→</span>
-        <span class="stop-tag">Jézeau frescoes</span>
-        <span class="stop-arrow">→</span>
-        <span class="stop-tag">Ancizan village</span>
-      </div>
-      <p>Drive to Arreau (20 min), walk the quayside and Château des Nestes. Drive 5 min uphill to Jézeau — the UNESCO church with 16th-century frescoes and Renaissance village lanes. Continue 5 min further south to Ancizan — the 15th-century cloth village with intact medieval fabric and a still-active farm. Three very different heritage stops in a 10 km radius. Rich and compact. Back by noon.</p>
-    </div>
-
-    <div class="combo-card">
-      <div class="combo-label">Louron valley day</div>
-      <div class="combo-stops">
-        <span class="stop-tag">Arreau</span>
-        <span class="stop-arrow">→</span>
-        <span class="stop-tag">Louron valley churches</span>
-        <span class="stop-arrow">→</span>
-        <span class="stop-tag">Génos-Loudenvielle lake</span>
-      </div>
-      <p>Drive south through Arreau and branch east into the Louron valley — stop at the painted Romanesque churches in Mont and Vielle-Louron. Continue to the Génos-Loudenvielle lake at 940m for a flat lakeside picnic and Kai at the July outdoor water park (Ludéo). One continuous south-southeast drive — everything on the same road. Return via Arreau.</p>
-    </div>
-
-    <div class="combo-card">
-      <div class="combo-label">Hot day escape</div>
-      <div class="combo-stops">
-        <span class="stop-tag">Gourgue d'Asque</span>
-        <span class="stop-arrow">→</span>
-        <span class="stop-tag">Bagnères-de-Bigorre browse</span>
-      </div>
-      <p>Drive 20 min northwest to the Gourgue d'Asque — cool rainforest gorge regardless of outside heat. Walk the flat first 1.5 km of the interpretive trail with Kai (pushchair viable). Back to Bagnères-de-Bigorre (20 min) for a café stop and a browse of the town centre and market hall. The gorge is the perfect July heat antidote — dense canopy, 100% humidity, 10 degrees cooler than the plains.</p>
-    </div>
-
-    <div class="combo-card">
-      <div class="combo-label">Mountain village + Garonne picnic</div>
-      <div class="combo-stops">
-        <span class="stop-tag">Barbazan lake picnic</span>
-        <span class="stop-arrow">→</span>
-        <span class="stop-tag">Saint-Béat village</span>
-      </div>
-      <p>Drive southeast to Barbazan (25 min) for a shaded lakeside picnic in the thermal park. Let Kai run the flat grassy area. Drive 10 min south to Saint-Béat — walk the old marble village, Romanesque church, castle ruins, Garonne quayside. Both fit comfortably in 3 hours. Return via the scenic D26 Garonne gorge road.</p>
-    </div>
-
-    <div class="combo-card">
-      <div class="combo-label">Easy local morning</div>
-      <div class="combo-stops">
-        <span class="stop-tag">Sarrancolin village</span>
-        <span class="stop-arrow">→</span>
-        <span class="stop-tag">Neste riverbank picnic</span>
-      </div>
-      <p>10 minutes from your door. Walk the medieval marble town — Prison Gate, Saint-Ebons church, old stone lanes. Drive back and picnic on the Neste banks at Lortet. Zero pressure, no planning required. Good for the first day, last day, or whenever energy is low. Sarrancolin is close enough to revisit on any afternoon.</p>
-    </div>
-
-    <div class="combo-card">
-      <div class="combo-label">Saturday market morning</div>
-      <div class="combo-stops">
-        <span class="stop-tag">Les Halles · Bagnères-de-Bigorre</span>
-        <span class="stop-arrow">→</span>
-        <span class="stop-tag">Campan village + valley walk</span>
-      </div>
-      <p>Leave by 8:45am for the Saturday market at Les Halles in Bagnères (20 min) — cheese, charcuterie, fish, oyster bar, local singing group. Stock up on provisions. Drive south 15 min through the Campan valley: stop at the 1571 market hall (oldest in the Hautes-Pyrénées), Saint-Vincent church, and flat Adour riverside path for Kai. Back by 12:30.</p>
-    </div>
-  </section>
-
-  <!-- ───── 11-DAY PLAN ───── -->
-  <section id="planner">
-    <div class="section-header">
-      <div class="section-icon icon-amber">📅</div>
-      <h2>11-Day Plan · 13–24 July</h2>
-    </div>
-
-    <div class="tip-box info" style="margin-bottom:12px;">
-      <h3>Daily rhythm</h3>
-      <p>Leave by 9–9:30am. Home by 12:30pm. Nap time = hottest part of the day. Afternoons: Neste riverbank, Sarrancolin wander, or rest. Prioritise Saint-Bertrand and Arreau in week 1 while energy is highest. The new spots (Gourgue d'Asque, Louron valley, Jézeau) slot naturally into week 2 once you know the area.</p>
-    </div>
-
-    <div class="week-block">
-      <div class="week-label">Week 1 · 13–19 July</div>
-      <div class="week-days">
-        <div class="day-row">
-          <div class="day-meta">
-            <span class="day-num">Sun 13</span>
-            Arrive
-          </div>
-          <div class="day-content">
-            Settle in · Neste riverbank + Sarrancolin
-            <span class="day-sub">Walk to the Neste (5 min). Quick look at Sarrancolin village if energy allows (10 min). Afternoon rest.</span>
-          </div>
-        </div>
-        <div class="day-row">
-          <div class="day-meta">
-            <span class="day-num">Mon 14</span>
-            ~20 min
-          </div>
-          <div class="day-content">
-            Arreau village — quayside, Maison des Lys, market hall, churches
-            <span class="day-sub">Bastille Day — check for local events. Evening fireworks at Barbazan lake (25 min, 9pm).</span>
-          </div>
-        </div>
-        <div class="day-row">
-          <div class="day-meta">
-            <span class="day-num">Tue 15</span>
-            ~25 min
-          </div>
-          <div class="day-content">
-            Lac de Payolle — lake circuit + Col d'Aspin summit
-            <span class="day-sub">1,139m lake loop (45 min, flat). Drive up to the Col d'Aspin (1,489m) for the panorama. Picnic at the lake on return.</span>
-          </div>
-        </div>
-        <div class="day-row">
-          <div class="day-meta">
-            <span class="day-num">Wed 16</span>
-            ~30 min
-          </div>
-          <div class="day-content">
-            Saint-Bertrand-de-Comminges — Roman ruins + village + Valcabrère picnic
-            <span class="day-sub">Ruins first (Kai runs freely), medieval village, free nave. Meadow picnic at Valcabrère (2 km). Best day of the stay.</span>
-          </div>
-        </div>
-        <div class="day-row">
-          <div class="day-meta">
-            <span class="day-num">Thu 17</span>
-            ~20 min
-          </div>
-          <div class="day-content">
-            Arreau Thursday market · Jézeau · Ancizan
-            <span class="day-sub">Market from 9am. Drive 5 min uphill to Jézeau frescoes. Continue 5 min to Ancizan medieval village. Back by noon.</span>
-          </div>
-        </div>
-        <div class="day-row">
-          <div class="day-meta">
-            <span class="day-num">Fri 18</span>
-            ~25 min
-          </div>
-          <div class="day-content">
-            Barbazan lake picnic · Saint-Béat village
-            <span class="day-sub">Picnic at Barbazan lake first. Drive 10 min south to Saint-Béat marble village, castle, church.</span>
-          </div>
-        </div>
-        <div class="day-row">
-          <div class="day-meta">
-            <span class="day-num">Sat 19</span>
-            ~20 min
-          </div>
-          <div class="day-content">
-            Bagnères-de-Bigorre Saturday market · Campan valley
-            <span class="day-sub">Les Halles by 9am — cheese, fish, charcuterie. Drive south to Campan village and riverbank walk.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="week-block">
-      <div class="week-label">Week 2 · 20–24 July</div>
-      <div class="week-days">
-        <div class="day-row">
-          <div class="day-meta">
-            <span class="day-num">Sun 20</span>
-            ~20 min
-          </div>
-          <div class="day-content">
-            Gourgue d'Asque — cool gorge walk
-            <span class="day-sub">Perfect for a hot day — natural cool inside the gorge. First 1.5 km flat and pushchair-accessible. €4 parking.</span>
-          </div>
-        </div>
-        <div class="day-row">
-          <div class="day-meta">
-            <span class="day-num">Mon 21</span>
-            ~30 min
-          </div>
-          <div class="day-content">
-            Saint-Bertrand — second visit, cathedral interior · Valcabrère
-            <span class="day-sub">Go deeper this time — pay for the cloister and choir. Meadow picnic at Valcabrère after.</span>
-          </div>
-        </div>
-        <div class="day-row">
-          <div class="day-meta">
-            <span class="day-num">Tue 22</span>
-            ~30–35 min
-          </div>
-          <div class="day-content">
-            Louron valley — churches at Mont + Vielle-Louron · Génos lake
-            <span class="day-sub">Drive south through Arreau into the Louron valley. Romanesque frescoes. End at Génos-Loudenvielle lake for picnic + Ludéo water park for Kai.</span>
-          </div>
-        </div>
-        <div class="day-row">
-          <div class="day-meta">
-            <span class="day-num">Wed 23</span>
-            ~30 min
-          </div>
-          <div class="day-content">
-            Loures-Barousse lake · Barousse valley drive
-            <span class="day-sub">Quiet pastoral valley, flat picnic lake, old stone villages. Restorative and crowd-free. Back by 12:30.</span>
-          </div>
-        </div>
-        <div class="day-row">
-          <div class="day-meta">
-            <span class="day-num">Thu 24</span>
-            Depart
-          </div>
-          <div class="day-content">
-            Last morning · Neste riverbank · Sarrancolin wander
-            <span class="day-sub">No pressure. Walk to the river, say goodbye to the mountains. Sarrancolin (10 min) if time allows before leaving.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───── TIPS ───── -->
-  <section id="tips">
-    <div class="section-header">
-      <div class="section-icon icon-pine">💡</div>
-      <h2>Practical Tips</h2>
-    </div>
-
-    <div class="tip-box heat">
-      <h3>July heat — at altitude</h3>
-      <ul>
-        <li>Lortet at 624m averages 24–27°C in July — manageable without AC. Nights drop to ~15°C.</li>
-        <li>Lac de Payolle at 1,139m and Col d'Aspin at 1,489m will be genuinely cool — bring a light layer.</li>
-        <li>Saint-Bertrand (~480m) and Valcabrère are lower and warmer — start by 9am, done by noon.</li>
-        <li>Leave for all outings by 9–9:30am. Home by 12:30pm at the latest. Nap = hottest hour.</li>
-        <li>Afternoons: Neste riverbank at home (shade + cool water) is the best afternoon plan.</li>
-      </ul>
-    </div>
-
-    <div class="tip-box kai">
-      <h3>With Kai (20 months)</h3>
-      <ul>
-        <li><strong>Best free-run spaces:</strong> Roman ruins at Saint-Bertrand (flat open field), Valcabrère meadow, Lac de Payolle lakeside, Neste riverbank at Lortet.</li>
-        <li><strong>Stroller-friendly:</strong> Arreau quayside, Bagnères-de-Bigorre centre, Campan village flat circuit, Barbazan lake.</li>
-        <li><strong>Carrier recommended:</strong> Upper village at Saint-Bertrand (uneven cobbles + slope), Saint-Béat upper lanes.</li>
-        <li><strong>Pony rides:</strong> Available at Lac de Payolle in July — Kai will be delighted as a spectator even if too young to ride.</li>
-        <li><strong>River safety:</strong> Neste at Lortet has some fast-flowing sections. Stay on the bank. Never approach the water without holding Kai's hand.</li>
-      </ul>
-    </div>
-
-    <div class="tip-box info">
-      <h3>Key logistics</h3>
-      <ul>
-        <li><strong>Arreau market:</strong> Thursday mornings. Arrive by 9am. Free parking at Place de la Mairie. Cash preferred for producers.</li>
-        <li><strong>Bagnères Saturday market:</strong> Les Halles. Arrive by 9am. Parking Salies nearby (signed). Gets very busy from 10am.</li>
-        <li><strong>Saint-Bertrand parking (July):</strong> Lower meadow car park fills by 10:30am. Go early or use the upper car park (via southern approach road).</li>
-        <li><strong>Col d'Aspin road:</strong> D918. Well-maintained. No issues with a normal car. Cyclists have priority 10am–3pm on certain days in July — check InfoRoute65 before going.</li>
-        <li><strong>Fuel:</strong> Fill up in Sarrancolin (D929) or Bagnères-de-Bigorre. No fuel available at Lac de Payolle, Col d'Aspin, Saint-Béat, or Barbazan.</li>
-        <li><strong>Pharmacy:</strong> Sarrancolin (10 min) and Bagnères-de-Bigorre (20 min). Nearest A&E: Lannemezan (~25 min north).</li>
-        <li><strong>Supermarket:</strong> Intermarché in Sarrancolin (10 min). Larger options in Bagnères-de-Bigorre.</li>
-        <li><strong>Bastille Day (14 July):</strong> Fireworks at Barbazan lake in the evening. Worth going for if Kai can stay up.</li>
-      </ul>
-    </div>
-  </section>
+  <div class="tip-box info">
+    <h3>Key logistics</h3>
+    <ul>
+      <li><strong>Arreau market:</strong> Thursday mornings. Arrive by 9am. Free parking at Place de la Mairie. Cash preferred for producers.</li>
+      <li><strong>Bagnères Saturday market:</strong> Les Halles. Arrive by 9am. Parking Salies nearby. Gets very busy from 10am. ⚠️ 37 min.</li>
+      <li><strong>Saint-Bertrand parking (July):</strong> Lower meadow car park fills by 10:30am. Go early or use the upper car park (via southern approach road).</li>
+      <li><strong>Col d'Aspin road:</strong> D918. Well maintained. Cyclists have priority certain hours in July — check InfoRoute65 before going. ⚠️ 39 min.</li>
+      <li><strong>Valmirande tours (Montréjeau):</strong> From 14 July, daily at 16h. Cash only. Tel: +33 6 21 05 40 16. ~40 min from Lortet ⚠️.</li>
+      <li><strong>Fuel:</strong> Fill up in Sarrancolin (D929, 14 min) or Bagnères-de-Bigorre. No fuel at Lac de Payolle, Col d'Aspin, Barousse valley.</li>
+      <li><strong>Pharmacy:</strong> Sarrancolin (14 min). Larger pharmacy in Bagnères-de-Bigorre (37 min ⚠️). A&E: Lannemezan (~20 min north).</li>
+      <li><strong>Supermarket:</strong> Intermarché in Sarrancolin (14 min). Larger options in Bagnères-de-Bigorre (37 min ⚠️).</li>
+      <li><strong>Bastille Day 14 July 2026:</strong> Fireworks at Barbazan lake in the evening (32 min ⚠️). Worth going if Kai can stay up.</li>
+      <li><strong>Louron valley churches:</strong> Contact Pays d'Art et d'Histoire des Vallées d'Aure et du Louron (patrimoine-aure-louron.fr) or Arreau tourist office for guided visit times. Some churches locked outside guided hours.</li>
+    </ul>
+  </div>
+</section>
 
 </main>
 
-<footer>
-  Lortet · Aure Valley · Hautes-Pyrénées · July 2025
-</footer>
+<footer>Lortet · Aure Valley · Hautes-Pyrénées · July 2026</footer>
+
+<script>
+function filterCards(tag) {
+  // Update button states
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    if (tag === 'all') {
+      card.classList.remove('hidden');
+    } else {
+      const tags = card.dataset.tags || '';
+      if (tags.includes(tag)) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    }
+  });
+
+  // Update section counts
+  document.querySelectorAll('section').forEach(section => {
+    const total = section.querySelectorAll('.card').length;
+    const visible = section.querySelectorAll('.card:not(.hidden)').length;
+    const countEl = section.querySelector('.count');
+    if (countEl && total > 0) {
+      if (tag === 'all') {
+        countEl.textContent = countEl.textContent.replace(/\d+ of /, '');
+      } else {
+        const baseText = countEl.textContent.replace(/\d+ of /, '');
+        countEl.textContent = visible + ' of ' + baseText;
+      }
+    }
+  });
+}
+</script>
 
 </body>
 </html>
