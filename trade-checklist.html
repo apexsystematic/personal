@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pre-Trade Checklist</title>
+<style>
+  :root {
+    --bg: #0E1117;
+    --surface: #141922;
+    --surface-hi: #1A202B;
+    --border: #232B38;
+    --gold: #C9A84C;
+    --gold-dim: #6B5A2A;
+    --text: #E8EBF0;
+    --muted: #7A8299;
+    --dim: #4F5B6E;
+    --mono: ui-monospace, "SF Mono", "DM Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    min-height: 100vh;
+    padding: 0 20px 64px;
+    max-width: 620px;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── SCORE HEADER ── */
+  .score-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg);
+    padding: 24px 0 18px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 14px;
+  }
+
+  .readout {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .pct {
+    font-family: var(--mono);
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--gold);
+    font-variant-numeric: tabular-nums;
+    transition: color 0.2s ease;
+  }
+  .pct.zero { color: var(--dim); }
+
+  .frac {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* segmented meter — one segment per criterion */
+  .meter {
+    display: flex;
+    gap: 3px;
+    height: 6px;
+  }
+  .seg {
+    flex: 1;
+    background: var(--border);
+    border-radius: 1px;
+    transition: background 0.18s ease;
+  }
+  .seg.on { background: var(--gold); }
+
+  /* ── SECTIONS ── */
+  section { margin-top: 32px; }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sec-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .sec-count {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--dim);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── ROWS ── */
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 15px 12px 15px 4px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(35,43,56,0.55);
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease;
+    border-radius: 4px;
+  }
+  .row:last-child { border-bottom: none; }
+  .row:hover { background: var(--surface); color: var(--text); }
+  .row:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: -2px;
+  }
+  .row.on { color: var(--text); }
+
+  .box {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--dim);
+    border-radius: 3px;
+    position: relative;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .row:hover .box { border-color: var(--muted); }
+  .row.on .box {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+  .box::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--bg);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0.4);
+    opacity: 0;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  .row.on .box::after {
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+  }
+
+  /* ── RESET ── */
+  .reset {
+    display: block;
+    margin: 40px auto 0;
+    padding: 11px 26px;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .reset:hover { border-color: var(--gold-dim); color: var(--gold); }
+  .reset:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+
+  @media (max-width: 420px) {
+    body { padding: 0 16px 48px; }
+    .pct { font-size: 38px; }
+    .row { font-size: 14.5px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="score-bar">
+    <div class="eyebrow">Setup Health</div>
+    <div class="readout">
+      <span class="pct zero" id="pct">0%</span>
+      <span class="frac" id="frac">0 / 13</span>
+    </div>
+    <div class="meter" id="meter"></div>
+  </div>
+
+  <main id="app"></main>
+
+  <button class="reset" id="reset">Clear all</button>
+
+<script>
+  const GROUPS = [
+    { name: "Weekly", items: [
+      "Bull trend",
+      "10 EMA crossover",
+      "High volume",
+      "Big % gain",
+      "Not a huge gain runner already"
+    ]},
+    { name: "Daily", items: [
+      "Orderly consolidation",
+      "Low volume consolidation",
+      "Shallow pullback",
+      "Tight or 10R candle",
+      "Low in the consolidation",
+      "Close above PDH / PDC"
+    ]},
+    { name: "Hourly", items: [
+      "Basing structure (flat, C&H, flag)",
+      "U&R"
+    ]}
+  ];
+
+  const TOTAL = GROUPS.reduce((n, g) => n + g.items.length, 0);
+  const app = document.getElementById("app");
+  const meter = document.getElementById("meter");
+  const pctEl = document.getElementById("pct");
+  const fracEl = document.getElementById("frac");
+
+  // meter segments
+  for (let i = 0; i < TOTAL; i++) {
+    const s = document.createElement("div");
+    s.className = "seg";
+    meter.appendChild(s);
+  }
+  const segs = [...meter.children];
+
+  // sections
+  GROUPS.forEach((g, gi) => {
+    const sec = document.createElement("section");
+
+    const head = document.createElement("div");
+    head.className = "sec-head";
+    head.innerHTML = `<span class="sec-title">${g.name}</span>
+                      <span class="sec-count" data-count="${gi}">0/${g.items.length}</span>`;
+    sec.appendChild(head);
+
+    g.items.forEach(label => {
+      const row = document.createElement("button");
+      row.className = "row";
+      row.type = "button";
+      row.setAttribute("aria-pressed", "false");
+      row.dataset.group = gi;
+      row.innerHTML = `<span class="box"></span><span>${label}</span>`;
+      row.addEventListener("click", () => {
+        const on = row.classList.toggle("on");
+        row.setAttribute("aria-pressed", on ? "true" : "false");
+        update();
+      });
+      sec.appendChild(row);
+    });
+
+    app.appendChild(sec);
+  });
+
+  const rows = [...document.querySelectorAll(".row")];
+  const counts = [...document.querySelectorAll("[data-count]")];
+
+  function update() {
+    let checked = 0;
+    rows.forEach((r, i) => {
+      const on = r.classList.contains("on");
+      if (on) checked++;
+      segs[i].classList.toggle("on", on);
+    });
+
+    const pct = Math.round((checked / TOTAL) * 100);
+    pctEl.textContent = pct + "%";
+    pctEl.classList.toggle("zero", checked === 0);
+    fracEl.textContent = `${checked} / ${TOTAL}`;
+
+    GROUPS.forEach((g, gi) => {
+      const n = rows.filter(r => r.dataset.group == gi && r.classList.contains("on")).length;
+      counts[gi].textContent = `${n}/${g.items.length}`;
+    });
+  }
+
+  document.getElementById("reset").addEventListener("click", () => {
+    rows.forEach(r => {
+      r.classList.remove("on");
+      r.setAttribute("aria-pressed", "false");
+    });
+    update();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  update();
+</script>
+</body>
+</html>
