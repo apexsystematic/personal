@@ -271,14 +271,15 @@
     { name: "Hourly", items: [
       "Clear basing structure (flat, C&H, flag)",
       "Right side of the base (HLs/HHs)",
-      "x200 signal or above intraday trend EMA"
+      "Above intraday trend EMA"
     ]}
   ];
 
   const SETUPS = ["Reclaim", "Tight/Inside", "U&R", "x200"];
   const GATES = [
     "Is this a serious trade or just fucking around?",
-    "Is the market healthy?"
+    "Is the market healthy?",
+    "No Earnings/News"
   ];
 
   const TOTAL = GROUPS.reduce((n, g) => n + g.items.length, 0);
@@ -352,7 +353,7 @@
     app.appendChild(sec);
   });
 
-  const rows = [...document.querySelectorAll(".row")];
+  const rows = [...app.querySelectorAll(".row")];
   const counts = [...document.querySelectorAll("[data-count]")];
 
   function update() {
