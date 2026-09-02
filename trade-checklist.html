@@ -235,9 +235,20 @@
 
   <div class="notice">Only enter trades 30 minutes after the open. Wait for market close if no high RVol.</div>
 
-  <main id="app"></main>
+  <section class="gate-section">
+    <div class="sec-head"><span class="sec-title">Setup</span></div>
+    <div id="setup-app"></div>
+  </section>
 
-  <button class="reset" id="reset">Clear all</button>
+  <section class="gate-section">
+    <div class="sec-head"><span class="sec-title">Trade Gate</span></div>
+    <div id="gate-app"></div>
+  </section>
+
+  <div id="main-wrapper" style="display:none;">
+    <main id="app"></main>
+    <button class="reset" id="reset">Clear all</button>
+  </div>
 
 <script>
   const GROUPS = [
@@ -264,11 +275,46 @@
     ]}
   ];
 
+  const SETUPS = ["Reclaim", "Tight/Inside", "U&R", "x200"];
+  const GATES = [
+    "Is this a serious trade or just fucking around?",
+    "Is the market healthy?"
+  ];
+
   const TOTAL = GROUPS.reduce((n, g) => n + g.items.length, 0);
   const app = document.getElementById("app");
   const meter = document.getElementById("meter");
   const pctEl = document.getElementById("pct");
   const fracEl = document.getElementById("frac");
+  const mainWrapper = document.getElementById("main-wrapper");
+
+  function buildToggleRow(label) {
+    const row = document.createElement("button");
+    row.className = "row";
+    row.type = "button";
+    row.setAttribute("aria-pressed", "false");
+    row.innerHTML = `<span class="box"></span><span>${label}</span>`;
+    row.addEventListener("click", () => {
+      const on = row.classList.toggle("on");
+      row.setAttribute("aria-pressed", on ? "true" : "false");
+      checkGate();
+    });
+    return row;
+  }
+
+  const setupApp = document.getElementById("setup-app");
+  SETUPS.forEach(label => setupApp.appendChild(buildToggleRow(label)));
+  const setupRows = [...setupApp.querySelectorAll(".row")];
+
+  const gateApp = document.getElementById("gate-app");
+  GATES.forEach(label => gateApp.appendChild(buildToggleRow(label)));
+  const gateRows = [...gateApp.querySelectorAll(".row")];
+
+  function checkGate() {
+    const setupOk = setupRows.some(r => r.classList.contains("on"));
+    const gatesOk = gateRows.every(r => r.classList.contains("on"));
+    mainWrapper.style.display = (setupOk && gatesOk) ? "block" : "none";
+  }
 
   // meter segments
   for (let i = 0; i < TOTAL; i++) {
